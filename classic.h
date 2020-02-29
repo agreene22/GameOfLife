@@ -4,9 +4,12 @@ class Classic{
 public:
   Classic();
   Classic(int rows, int columns);
+  ~Classic();
 
-  void DisplayGen(char currGen[][]);
-  void Simulate(char currGen[][]);
+  void PopulateFirstGen();
+
+  void DisplayGen(char *currGen);
+  void Simulate(char *currGen);
   int findAlive(int currRow, int currColumn);
 
 private:
