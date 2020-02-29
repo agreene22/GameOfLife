@@ -3,15 +3,16 @@
 class Classic{
 public:
   Classic();
+  Classic(int rows, int columns);
 
   void DisplayGen(char currGen[][]);
   void Simulate(char currGen[][]);
   int findAlive(int currRow, int currColumn);
 
 private:
-  char m_currGen;
-  char *m_nextGen;
+  char *currGen;
+  char *nextGen;
   int m_genCount;
-  int mrows;
+  int m_rows;
   int m_columns;
 };
