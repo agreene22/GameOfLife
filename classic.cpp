@@ -26,7 +26,7 @@ Classic::~Classic(){
   delete nextGen;
 }
 
-void Classic::DisplayGen(char *currGen){
+void Classic::DisplayGen(char* currGen){
   for(int i = 0; i < m_rows; ++i){
     for(int j = 0; j < m_columns; ++j){
       cout << currGen[i][j];
@@ -35,7 +35,7 @@ void Classic::DisplayGen(char *currGen){
   }
 }
 
-void Classic::Simulate(char *currGen){
+void Classic::Simulate(char* currGen){
   for(int i = 0; i < m_rows; ++i){
     for(int j = 0; i < m_columns; ++j){
       int count = findAlive(i,j);
