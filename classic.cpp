@@ -7,6 +7,8 @@ Classic::Classic(){
   m_genCount = 0;
   m_rows = 5;
   m_columns = 5;
+  char* current = &currGen;
+  char* next = &nextGen;
 }
 
 Classic::Classic(int rows, int columns){
@@ -15,6 +17,8 @@ Classic::Classic(int rows, int columns){
   m_genCount = 0;
   m_rows = rows;
   m_columns = columns;
+  char* current = &currGen;
+  char* next = &nextGen;
 }
 
 Classic::~Classic(){
@@ -54,14 +58,14 @@ void Classic::Simulate(char *currGen){
       }
     }
   }
-  currGen = nextGen; // idk if this is right or if I should dereference nextGen  //this needs to be a pointer somehow
+  currGen = nextGen; // idk if this is right or if I should dereference nextGen  //I think they are both pointers already so we're good
   m_genCount++;
 }
 
 int Classic::findAlive(int currRow, int currColumn){
   int count;
   if(currGen[currRow][currColumn] == 'X'){
-    count = -1;
+    count = -1; //?
   }else{
     count = 0;
   }
