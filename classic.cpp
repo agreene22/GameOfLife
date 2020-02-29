@@ -10,7 +10,7 @@ Classic::Classic(){
 }
 
 Classic::Classic(int rows, int columns){
-  currGen = new char[rows][columns];
+  currGen = new char[rows][columns]; //Cannot initialize 2d array pointer like this but I haven't changed it yet
   nextGen = new char[rows][columns];
   m_genCount = 0;
   m_rows = rows;
@@ -55,10 +55,11 @@ void Classic::Simulate(char *currGen){
 }
 
 int Classic::findAlive(int currRow, int currColumn){
+  int count;
   if(currGen[currRow][currColumn] == 'X'){
-    int count = -1;
+    count = -1;
   }else{
-    int count = 0;
+    count = 0;
   }
 
   if(currRow == 0 && currColumn == 0){ // Check top left corner
