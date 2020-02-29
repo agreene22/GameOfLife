@@ -2,7 +2,7 @@
 using namespace std;
 
 Classic::Classic(){
-  currGen = new char[5][5]; // how big should we make the default
+  currGen = new char[5][5]; // how big should we make the default //good question
   nextGen = new char[5][5];
   m_genCount = 0;
   m_rows = 5;
@@ -37,20 +37,24 @@ void Classic::Simulate(char *currGen){
       int count = findAlive(i,j);
       if(count <= 1){
         nextGen[i][j] = '-';
-      } else if(count == 2){
+      }else if(count == 2){
         if(currGen[i][j] == 'X'){
-          nextGen[i][j] == 'X';
-        } else{
-          nextGen[i][j] == '-';
+          nextGen[i][j] = 'X';
+        }else{
+          nextGen[i][j] = '-';
         }
-      } else if(count == 3){
-        nextGen[i][j] == 'X';
-      } else{
-        nextGen[i][j] == '-';
+      }else if(count == 3){
+        if(currGen[i][j] == 'X'){
+          nextGen[i][j] = 'X';
+        }else{
+          nextGen[i][j] = 'X';
+        }
+      }else{
+        nextGen[i][j] = '-';
       }
     }
   }
-  currGen = nextGen; // idk if this is right or if I should dereference nextGen
+  currGen = nextGen; // idk if this is right or if I should dereference nextGen  //this needs to be a pointer somehow
   m_genCount++;
 }
 
