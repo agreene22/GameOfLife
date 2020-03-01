@@ -1,13 +1,13 @@
 #include "classic.h"
 using namespace std;
-
+//i think throughout the code whenever we use the name currGen or nextGen we might have to put the dereference operator because we are referencing the pointer
 Classic::Classic(){
-  currGen = new char[5][5]; // how big should we make the default //good question
+  currGen = new char[5][5]; // how big should we make the default //good question, also shouldnt we dynamically allocate these to memory with pointers right off the bat?
   nextGen = new char[5][5];
   m_genCount = 0;
   m_rows = 5;
   m_columns = 5;
-  char* current = &currGen;
+  char* current = &currGen; //or do we need this because we already declared them as pointers in the header file?
   char* next = &nextGen;
 }
 
@@ -26,7 +26,7 @@ Classic::~Classic(){
   delete nextGen;
 }
 
-void Classic::DisplayGen(char* currGen){
+void Classic::DisplayGen(char* currGen){ //rename parameters
   for(int i = 0; i < m_rows; ++i){
     for(int j = 0; j < m_columns; ++j){
       cout << currGen[i][j];
@@ -35,19 +35,19 @@ void Classic::DisplayGen(char* currGen){
   }
 }
 
-void Classic::Simulate(char* currGen){
+void Classic::Simulate(char* currGen){  //i think our parameters should be named something else so we dont confuse it with the member variable
   for(int i = 0; i < m_rows; ++i){
     for(int j = 0; i < m_columns; ++j){
-      int count = findAlive(i,j);
-      if(count <= 1){
+      int neighbors = findAlive(i,j);
+      if(neighbors <= 1){
         nextGen[i][j] = '-';
-      }else if(count == 2){
+      }else if(neighbors == 2){
         if(currGen[i][j] == 'X'){
           nextGen[i][j] = 'X';
         }else{
           nextGen[i][j] = '-';
         }
-      }else if(count == 3){
+      }else if(neighbors == 3){
         if(currGen[i][j] == 'X'){
           nextGen[i][j] = 'X';
         }else{
@@ -58,9 +58,11 @@ void Classic::Simulate(char* currGen){
       }
     }
   }
-  currGen = nextGen; // idk if this is right or if I should dereference nextGen  //I think they are both pointers already so we're good
+  currGen = nextGen; //i think this is good since theyre already pointers
   m_genCount++;
 }
+
+
 
 int Classic::findAlive(int currRow, int currColumn){
   int count;
@@ -73,135 +75,102 @@ int Classic::findAlive(int currRow, int currColumn){
   if(currRow == 0 && currColumn == 0){ // Check top left corner
     if(currGen[currRow][currColumn+1] == 'X'){
       count++;
-    }
-    if(currGen[currRow+1][currColumn] == 'X'){
+    }if(currGen[currRow+1][currColumn] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn+1] == 'X'){
       count++;
     }
-    if(currGen[currRow+1][currColumn+1] == 'X'){
-      count++;
-    }
-  } else if (currRow == (m_rows-1) && currColumn == 0){ // Check bottom left corner
+  }else if (currRow == (m_rows-1) && currColumn == 0){ // Check bottom left corner
     if(currGen[currRow][currColumn+1] == 'X'){
       count++;
-    }
-    if(currGen[currRow-1][currColumn] == 'X'){
+    }if(currGen[currRow-1][currColumn] == 'X'){
+      count++;
+    }if(currGen[currRow-1][currColumn+1] == 'X'){
       count++;
     }
-    if(currGen[currRow-1][currColumn+1] == 'X'){
-      count++;
-    }
-  } else if (currRow == 0 && currColumn == (m_columns-1)){ // Check top right corner
+  }else if (currRow == 0 && currColumn == (m_columns-1)){ // Check top right corner
     if(currGen[currRow][currColumn-1] == 'X'){
       count++;
-    }
-    if(currGen[currRow+1][currColumn-1] == 'X'){
+    }if(currGen[currRow+1][currColumn-1] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn] == 'X'){
       count++;
     }
-    if(currGen[currRow+1][currColumn] == 'X'){
-      count++;
-    }
-  } else if (currRow == (m_rows-1) && currColumn == (m_columns-1)){ // Check bottom right corner
+  }else if (currRow == (m_rows-1) && currColumn == (m_columns-1)){ // Check bottom right corner
     if(currGen[currRow-1][currColumn-1] == 'X'){
       count++;
-    }
-    if(currGen[currRow-1][currColumn] == 'X'){
+    }if(currGen[currRow-1][currColumn] == 'X'){
+      count++;
+    }if(currGen[currRow][currColumn-1] == 'X'){
       count++;
     }
+  }else if(currRow == 0 && (currColumn != 0 || currColumn != (m_columns - 1))){ // Checks top row
     if(currGen[currRow][currColumn-1] == 'X'){
       count++;
-    }
-  }
-
-  else if(currRow == 0 && currColumn != 0){ // Checks top row
-    if(currGen[currRow][currColumn-1] == 'X'){
+    }if(currGen[currRow][currColumn+1] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn-1] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn+1] == 'X'){
       count++;
     }
-    if(currGen[currRow][currColumn+1] == 'X'){
-      count++;
-    }
-    if(currGen[currRow+1][currColumn-1] == 'X'){
-      count++;
-    }
-    if(currGen[currRow+1][currColumn] == 'X'){
-      count++;
-    }
-    if(currGen[currRow+1][currColumn+1] == 'X'){
-      count++;
-    }
-  }else if (currRow == (m_rows-1) && currColumn != (m_columns -1)){ //Checks bottom row
+  }else if (currRow == (m_rows-1) && (currColum != 0 || currColumn != (m_columns -1))){ //Checks bottom row
     if(currGen[currRow-1][currColumn-1] == 'X'){
       count++;
+    }if(currGen[currRow-1][currColumn] == 'X'){
+      count++;
+    }if(currGen[currRow-1][currColumn+1] == 'X'){
+      count++;
+    }if(currGen[currRow][currColumn-1] == 'X'){
+      count++;
+    }if(currGen[currRow][currColumn+1] == 'X'){
+      count++;
     }
+  } else if (currColumn == 0 && (currRow != 0 || currRow != (m_rows - 1))){ // Checks left column
     if(currGen[currRow-1][currColumn] == 'X'){
       count++;
-    }
-    if(currGen[currRow-1][currColumn+1] == 'X'){
+    }if(currGen[currRow-1][currColumn+1] == 'X'){
+      count++;
+    }if(currGen[currRow][currColumn+1] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn+1] == 'X'){
       count++;
     }
-    if(currGen[currRow][currColumn-1] == 'X'){
-      count++;
-    }
-    if(currGen[currRow][currColumn+1] == 'X'){
-      count++;
-    }
-  } else if (currColumn == 0 && currRow != 0){ // Checks left column
-    if(currGen[currRow-1][currColumn] == 'X'){
-      count++;
-    }
-    if(currGen[currRow-1][currColumn+1] == 'X'){
-      count++;
-    }
-    if(currGen[currRow][currColumn+1] == 'X'){
-      count++;
-    }
-    if(currGen[currRow+1][currColumn] == 'X'){
-      count++;
-    }
-    if(currGen[currRow+1][currColumn+1] == 'X'){
-      count++;
-    }
-  } else if (currColumn == (m_columns -1) && currRow != (m_rows-1)){ // Checks right column
+  }else if (currColumn == (m_columns -1) && (currRow!= 0 || currRow != (m_rows-1))){ // Checks right column
     if(currGen[currRow-1][currColumn-1] == 'X'){
       count++;
-    }
-    if(currGen[currRow-1][currColumn] == 'X'){
+    }if(currGen[currRow-1][currColumn] == 'X'){
       count++;
-    }
-    if(currGen[currRow][currColumn-1] == 'X'){
+    }if(currGen[currRow][currColumn-1] == 'X'){
       count++;
-    }
-    if(currGen[currRow+1][currColumn-1] == 'X'){
+    }if(currGen[currRow+1][currColumn-1] == 'X'){
       count++;
-    }
-    if(currGen[currRow+1][currColumn] == 'X'){
+    }if(currGen[currRow+1][currColumn] == 'X'){
       count++;
     }
   }
   else{ // Checks for all cells not on boundary
     if(currGen[currRow-1][currColumn-1] == 'X'){
       count++;
-    }
-    if(currGen[currRow-1][currColumn] == 'X'){
+    }if(currGen[currRow-1][currColumn] == 'X'){
       count++;
-    }
-    if(currGen[currRow-1][currColumn+1] == 'X'){
+    }if(currGen[currRow-1][currColumn+1] == 'X'){
       count++;
-    }
-    if(currGen[currRow][currColumn-1] == 'X'){
+    }if(currGen[currRow][currColumn-1] == 'X'){
       count++;
-    }
-    if(currGen[currRow][currColumn+1] == 'X'){
+    }if(currGen[currRow][currColumn+1] == 'X'){
       count++;
-    }
-    if(currGen[currRow+1][currColumn-1] == 'X'){
+    }if(currGen[currRow+1][currColumn-1] == 'X'){
       count++;
-    }
-    if(currGen[currRow+1][currColumn] == 'X'){
+    }if(currGen[currRow+1][currColumn] == 'X'){
       count++;
-    }
-    if(currGen[currRow+1][currColumn+1] == 'X'){
+    }if(currGen[currRow+1][currColumn+1] == 'X'){
       count++;
-    }
+    } //nice
   }
 
   return count;
