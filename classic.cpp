@@ -65,12 +65,7 @@ void Classic::Simulate(char* currGen){  //i think our parameters should be named
 
 
 int Classic::findAlive(int currRow, int currColumn){
-  int count;
-  if(currGen[currRow][currColumn] == 'X'){
-    count = -1; //?
-  }else{
-    count = 0;
-  }
+  int count = 0;
 
   if(currRow == 0 && currColumn == 0){ // Check top left corner
     if(currGen[currRow][currColumn+1] == 'X'){
@@ -116,7 +111,7 @@ int Classic::findAlive(int currRow, int currColumn){
     }if(currGen[currRow+1][currColumn+1] == 'X'){
       count++;
     }
-  }else if (currRow == (m_rows-1) && (currColum != 0 || currColumn != (m_columns -1))){ //Checks bottom row
+  }else if (currRow == (m_rows-1) && (currColumn != 0 || currColumn != (m_columns -1))){ //Checks bottom row
     if(currGen[currRow-1][currColumn-1] == 'X'){
       count++;
     }if(currGen[currRow-1][currColumn] == 'X'){
