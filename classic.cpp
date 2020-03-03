@@ -7,7 +7,7 @@ Classic::Classic(){
   m_genCount = 0;
   m_rows = 5;
   m_columns = 5;
-  char* current = &currGen; //or do we need this because we already declared them as pointers in the header file?
+  char* current = &currGen; //or do we need this because we already declared them as pointers in the header file? // I think because they're already declared as pointers we dont?
   char* next = &nextGen;
 }
 
