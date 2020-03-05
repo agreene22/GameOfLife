@@ -56,7 +56,6 @@ void Classic::DisplayGen(){
 void Classic::Simulate(){
   for(int i = 0; i < m_rows; ++i){
     for(int j = 0; j < m_columns; ++j){
-      //cout << "Row: " << i << " Column: " << j << endl;
       int neighbors = findAlive(i,j);
       if(neighbors <= 1){
         nextGen[i][j] = '-';
