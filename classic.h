@@ -3,7 +3,7 @@
 class Classic{
 public:
   Classic();
-  Classic(int rows, int columns);
+  Classic(int rows, int columns, float density);
   ~Classic();
 
   // void PopulateFirstGen(int popDensity); // Should we create two methods? One for if they provide a file and one for if they don't
@@ -12,7 +12,8 @@ public:
   void DisplayGen(char** currGen);
   void Simulate(char** currGen);
   int findAlive(int currRow, int currColumn);
-  char** init(int rows, int cols);
+  char** init(int rows, int cols, float density);
+
 
 private:
   char** currGen;
