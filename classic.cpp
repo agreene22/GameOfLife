@@ -1,24 +1,28 @@
 #include "classic.h"
 using namespace std;
-//i think throughout the code whenever we use the name currGen or nextGen we might have to put the dereference operator because we are referencing the pointer
+
+char** Classic::init(int rows, int cols){
+  char **gen = new char*[rows];
+  for(int i = 0; i < rows; ++i) {
+      gen[i] = new char[cols];
+  }
+  return gen;
+}
+
 Classic::Classic(){
-  currGen = new char[5][5]; // how big should we make the default //good question, also shouldnt we dynamically allocate these to memory with pointers right off the bat?
-  nextGen = new char[5][5];
+  currGen = init(5,5); // how big should we make the default //good question, also shouldnt we dynamically allocate these to memory with pointers right off the bat?
+  nextGen = init(5,5);
   m_genCount = 0;
   m_rows = 5;
   m_columns = 5;
-  char* current = &currGen; //or do we need this because we already declared them as pointers in the header file? // I think because they're already declared as pointers we dont?
-  char* next = &nextGen;
 }
 
 Classic::Classic(int rows, int columns){
-  currGen = new char[rows][columns]; //Cannot initialize 2d array pointer like this but I haven't changed it yet
-  nextGen = new char[rows][columns];
+  currGen = init(rows, columns); //Cannot initialize 2d array pointer like this but I haven't changed it yet
+  nextGen = init(rows, columns);
   m_genCount = 0;
   m_rows = rows;
   m_columns = columns;
-  char* current = &currGen;
-  char* next = &nextGen;
 }
 
 Classic::~Classic(){
@@ -26,16 +30,16 @@ Classic::~Classic(){
   delete nextGen;
 }
 
-void Classic::DisplayGen(char* currGen){ //rename parameters
+void Classic::DisplayGen(char** generation){ //rename parameters
   for(int i = 0; i < m_rows; ++i){
     for(int j = 0; j < m_columns; ++j){
-      cout << currGen[i][j];
+      cout << generation[i][j];
     }
     cout << endl;
   }
 }
 
-void Classic::Simulate(char* currGen){  //i think our parameters should be named something else so we dont confuse it with the member variable
+void Classic::Simulate(char** currGen){  //i think our parameters should be named something else so we dont confuse it with the member variable
   for(int i = 0; i < m_rows; ++i){
     for(int j = 0; i < m_columns; ++j){
       int neighbors = findAlive(i,j);
