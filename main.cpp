@@ -57,8 +57,12 @@ int main(int argc, char **argv){
 //   cout << "Enter 1, 2, or 3" << endl;
 //   cin >> outOption;
   // IMPLEMENT BASED ON CHOICE HERE
-  Classic mine = Classic(5,5,0.8);
+  Classic mine = Classic(5,5,0.6);
   mine.DisplayGen();
+  mine.Simulate();
+  cout << "New Gen" << endl;
+  mine.DisplayGen();
+  mine.~Classic();
 
   return 0;
 }

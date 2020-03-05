@@ -24,7 +24,7 @@ char** Classic::init(int rows, int cols, float density){
 
 
 Classic::Classic(){
-  currGen = init(5,5, 0.7); // how big should we make the default //good question, also shouldnt we dynamically allocate these to memory with pointers right off the bat?
+  currGen = init(5,5, 0.7);
   nextGen = init(5,5, 0);
   m_genCount = 0;
   m_rows = 5;
@@ -32,7 +32,7 @@ Classic::Classic(){
 }
 
 Classic::Classic(int rows, int columns, float density){
-  currGen = init(rows, columns, density); //Cannot initialize 2d array pointer like this but I haven't changed it yet
+  currGen = init(rows, columns, density);
   nextGen = init(rows, columns, 0.0);
   m_genCount = 0;
   m_rows = rows;
@@ -44,7 +44,7 @@ Classic::~Classic(){
   delete nextGen;
 }
 
-void Classic::DisplayGen(){ //rename parameters
+void Classic::DisplayGen(){
   for(int i = 0; i < m_rows; ++i){
     for(int j = 0; j < m_columns; ++j){
       cout << currGen[i][j];
@@ -53,9 +53,10 @@ void Classic::DisplayGen(){ //rename parameters
   }
 }
 
-void Classic::Simulate(){  //i think our parameters should be named something else so we dont confuse it with the member variable
+void Classic::Simulate(){
   for(int i = 0; i < m_rows; ++i){
-    for(int j = 0; i < m_columns; ++j){
+    for(int j = 0; j < m_columns; ++j){
+      //cout << "Row: " << i << " Column: " << j << endl;
       int neighbors = findAlive(i,j);
       if(neighbors <= 1){
         nextGen[i][j] = '-';
@@ -76,7 +77,7 @@ void Classic::Simulate(){  //i think our parameters should be named something el
       }
     }
   }
-  currGen = nextGen; //i think this is good since theyre already pointers
+  currGen = nextGen;
   m_genCount++;
 }
 
@@ -101,7 +102,7 @@ int Classic::findAlive(int currRow, int currColumn){
     }if(currGen[currRow-1][currColumn+1] == 'X'){
       count++;
     }
-  }else if (currRow == 0 && currColumn == (m_columns-1)){ // Check top right corner
+  }else if (currRow == 0 && currColumn == (m_columns - 1)){ // Check top right corner
     if(currGen[currRow][currColumn-1] == 'X'){
       count++;
     }if(currGen[currRow+1][currColumn-1] == 'X'){
@@ -109,7 +110,7 @@ int Classic::findAlive(int currRow, int currColumn){
     }if(currGen[currRow+1][currColumn] == 'X'){
       count++;
     }
-  }else if (currRow == (m_rows-1) && currColumn == (m_columns-1)){ // Check bottom right corner
+  }else if (currRow == (m_rows - 1) && currColumn == (m_columns - 1)){ // Check bottom right corner
     if(currGen[currRow-1][currColumn-1] == 'X'){
       count++;
     }if(currGen[currRow-1][currColumn] == 'X'){
@@ -117,7 +118,7 @@ int Classic::findAlive(int currRow, int currColumn){
     }if(currGen[currRow][currColumn-1] == 'X'){
       count++;
     }
-  }else if(currRow == 0 && (currColumn != 0 || currColumn != (m_columns - 1))){ // Checks top row
+  }else if(currRow == 0 && (currColumn != 0 && currColumn != (m_columns - 1))){ // Checks top row
     if(currGen[currRow][currColumn-1] == 'X'){
       count++;
     }if(currGen[currRow][currColumn+1] == 'X'){
@@ -129,7 +130,7 @@ int Classic::findAlive(int currRow, int currColumn){
     }if(currGen[currRow+1][currColumn+1] == 'X'){
       count++;
     }
-  }else if (currRow == (m_rows-1) && (currColumn != 0 || currColumn != (m_columns -1))){ //Checks bottom row
+  }else if (currRow == (m_rows - 1) && (currColumn != 0 && currColumn != (m_columns - 1))){ //Checks bottom row
     if(currGen[currRow-1][currColumn-1] == 'X'){
       count++;
     }if(currGen[currRow-1][currColumn] == 'X'){
@@ -141,7 +142,7 @@ int Classic::findAlive(int currRow, int currColumn){
     }if(currGen[currRow][currColumn+1] == 'X'){
       count++;
     }
-  } else if (currColumn == 0 && (currRow != 0 || currRow != (m_rows - 1))){ // Checks left column
+  } else if (currColumn == 0 && (currRow != 0 && currRow != (m_rows - 1))){ // Checks left column
     if(currGen[currRow-1][currColumn] == 'X'){
       count++;
     }if(currGen[currRow-1][currColumn+1] == 'X'){
@@ -153,7 +154,7 @@ int Classic::findAlive(int currRow, int currColumn){
     }if(currGen[currRow+1][currColumn+1] == 'X'){
       count++;
     }
-  }else if (currColumn == (m_columns -1) && (currRow!= 0 || currRow != (m_rows-1))){ // Checks right column
+  }else if (currColumn == (m_columns -1) && (currRow!= 0 && currRow != (m_rows-1))){ // Checks right column
     if(currGen[currRow-1][currColumn-1] == 'X'){
       count++;
     }if(currGen[currRow-1][currColumn] == 'X'){
