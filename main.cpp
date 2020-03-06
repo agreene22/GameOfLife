@@ -1,10 +1,7 @@
-#include <iostream>
-#include <fstream>
 #include "classic.h"
 #include "doughnut.h"
 #include "mirror.h"
 #include "manager.h"
-#include <iostream>
 
 using namespace std;
 
