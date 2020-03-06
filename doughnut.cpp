@@ -20,8 +20,6 @@ char** Doughnut::init(int rows, int cols, float density){
 }
 
 
-
-
 Doughnut::Doughnut(){
   currGen = init(5,5, 0.7); // how big should we make the default //good question, also shouldnt we dynamically allocate these to memory with pointers right off the bat?
   nextGen = init(5,5, 0.0);
