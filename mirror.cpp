@@ -21,7 +21,7 @@ char** Mirror::init(int rows, int cols, float density){
 
 
 Mirror::Mirror(){
-  currGen = init(5,5, 0.7); // how big should we make the default //good question, also shouldnt we dynamically allocate these to memory with pointers right off the bat?
+  currGen = init(5,5, 0.7); 
   nextGen = init(5,5, 0.0);
   m_genCount = 0;
   m_rows = 5;
@@ -29,7 +29,7 @@ Mirror::Mirror(){
 }
 
 Mirror::Mirror(int rows, int columns, float density){
-  currGen = init(rows, columns, density); //Cannot initialize 2d array pointer like this but I haven't changed it yet
+  currGen = init(rows, columns, density);
   nextGen = init(rows, columns, 0.0);
   m_genCount = 0;
   m_rows = rows;
