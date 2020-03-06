@@ -23,7 +23,7 @@ char** Classic::init(int rows, int cols, float density){
 }
 
 
-Classic::Classic(){
+Classic::Classic(char** map){
   currGen = init(5,5, 0.7);
   nextGen = init(5,5, 0);
   m_genCount = 0;

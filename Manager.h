@@ -6,7 +6,7 @@ public:
   Manager(char mapChoice, int gameMode, int outOption);
   ~Manager();
 
-  char** ChooseMap();
+  char** SetMap();
   int ChooseBoundary();
   int ChooseOutput();
 private:
