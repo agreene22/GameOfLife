@@ -29,12 +29,18 @@ Doughnut::Doughnut(){
 }
 
 Doughnut::Doughnut(int rows, int columns, float density){
-  currGen = init(rows, columns, density); 
+  currGen = init(rows, columns, density);
   nextGen = init(rows, columns, 0.0);
   m_genCount = 0;
   m_rows = rows;
   m_columns = columns;
 }
+
+Doughnut::Doughnut(char** grid){
+  //pass in the user grid
+}
+
+
 
 Doughnut::~Doughnut(){
   delete currGen;

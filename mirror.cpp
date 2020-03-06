@@ -21,7 +21,7 @@ char** Mirror::init(int rows, int cols, float density){
 
 
 Mirror::Mirror(){
-  currGen = init(5,5, 0.7); 
+  currGen = init(5,5, 0.7);
   nextGen = init(5,5, 0.0);
   m_genCount = 0;
   m_rows = 5;
@@ -34,6 +34,10 @@ Mirror::Mirror(int rows, int columns, float density){
   m_genCount = 0;
   m_rows = rows;
   m_columns = columns;
+}
+
+Mirror::Mirror(char** grid){
+
 }
 
 Mirror::~Mirror(){

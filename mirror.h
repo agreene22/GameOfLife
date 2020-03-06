@@ -4,10 +4,11 @@ class Mirror{
   public:
     Mirror();
     Mirror(int rows, int columns, float density);
+    Mirror(char** grid);
     ~Mirror();
 
-    void DisplayGen(char** currGen);
-    void Simulate(char** currGen);
+    void DisplayGen(); //no need for parameters on these functions
+    void Simulate(); //no need for parameters on these functions
     int findAlive(int currRow, int currColumn);
     char** init(int rows, int cols, float density);
 

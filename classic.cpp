@@ -23,12 +23,8 @@ char** Classic::init(int rows, int cols, float density){
 }
 
 
-Classic::Classic(char** map){
-  currGen = init(5,5, 0.7);
-  nextGen = init(5,5, 0);
-  m_genCount = 0;
-  m_rows = 5;
-  m_columns = 5;
+Classic::Classic(char** grid){
+  //passing in the map here
 }
 
 Classic::Classic(int rows, int columns, float density){
