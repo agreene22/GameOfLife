@@ -4,7 +4,7 @@ class Manager{
 public:
   Manager();
   Manager(char mapChoice, int gameMode, int outOption);
-  // ~Manager();
+  ~Manager();
 
   char** ChooseMap();
   int ChooseBoundary();

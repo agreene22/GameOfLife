@@ -3,23 +3,27 @@
 #include "classic.h"
 #include "doughnut.h"
 #include "mirror.h"
+#include "manager.h"
 
 using namespace std;
 
 int main(int argc, char **argv){
-  Manager m = new Manager();
-  m.ChooseMap();
+  Manager* m = new Manager();
+  m->ChooseMap();
 
-  int b = m.ChooseBoundary();
+  int b = m->ChooseBoundary();
   if(b == 1){
     Classic mine = Classic();
-  } else if(b == 2){
+  }else if(b == 2){
     Doughnut mine = Doughnut();
-  } else{
-    Mirror mine = Mirror();
+  }else if(b == 3){
+    //Mirror mine = Mirror();
+  }else{
+    cout << "Invalid input.";
+    return 1;
   }
 
-  m.ChooseOutput();
+  m->ChooseOutput();
 
 
   Classic mine = Classic(5,5,0.6);
