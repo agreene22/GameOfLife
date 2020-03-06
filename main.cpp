@@ -34,15 +34,15 @@ int main(int argc, char **argv){
   if(b == 1 && mapChoice != 'y'){
     Classic mine = Classic(userRows,userColumns,userDensity);
   }else if (b == 1 && mapChoice == 'y'){
-    Classic mine = Classic(); // We want classic game mode but with their map they passed
+    //Classic mine = Classic(); // We want classic game mode but with their map they passed
   }else if(b == 2){
-    Doughnut mine = Doughnut(userRows,userColumns,userDensity);
+    //Doughnut mine = Doughnut(userRows,userColumns,userDensity);
   }else if (b == 2 && mapChoice == 'y'){
-    Doughnut mine = Doughnut(); // We want doughnut game mode but with their map they passed
+    //Doughnut mine = Doughnut(); // We want doughnut game mode but with their map they passed
   }else if(b == 3){
     //Mirror mine = Mirror(userRows,userColumns,userDensity);
   }else if (b == 3 && mapChoice == 'y'){
-    Mirror mine = Mirror(); // We want classic game mode but with their map they passed
+    //Mirror mine = Mirror(); // We want classic game mode but with their map they passed
   }else{
     cout << "Invalid input.";
     return 1;
