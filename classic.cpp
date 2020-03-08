@@ -36,7 +36,7 @@ Classic::Classic(int rows, int columns, float density){
 
 Classic::~Classic(){
   delete currGen;
-  // delete nextGen;
+  delete nextGen;
 }
 
 void Classic::DisplayGen(){

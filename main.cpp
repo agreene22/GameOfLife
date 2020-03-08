@@ -51,9 +51,9 @@ int main(int argc, char **argv){
   Classic mine = Classic(5,5,0.6);
   mine.DisplayGen();
   mine.Simulate();
-  cout << "New Gen" << endl;
   mine.DisplayGen();
-  // mine.~Classic();
+  // mine.~Classic(); // This is the line causing the double free or corruption error
+
 
   return 0;
 }
