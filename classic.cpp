@@ -137,7 +137,7 @@ int Classic::findAlive(int currRow, int currColumn){
     }if(currGen[currRow][currColumn+1] == 'X'){
       count++;
     }
-  } else if (currColumn == 0 && (currRow != 0 && currRow != (m_rows - 1))){ // Checks left column
+  }else if (currColumn == 0 && (currRow != 0 && currRow != (m_rows - 1))){ // Checks left column
     if(currGen[currRow-1][currColumn] == 'X'){
       count++;
     }if(currGen[currRow-1][currColumn+1] == 'X'){

@@ -46,3 +46,219 @@ Doughnut::~Doughnut(){
   delete currGen;
   delete nextGen;
 }
+
+void Doughnut::DisplayGen(){
+  cout << "Generation " << m_genCount << endl;
+  for(int i = 0; i < m_rows; ++i){
+    for(int j = 0; j < m_columns; ++j){
+      cout << currGen[i][j];
+    }
+    cout << endl;
+  }
+}
+
+void Doughnut::Simulate(){
+  for(int i = 0; i < m_rows; ++i){
+    for(int j = 0; j < m_columns; ++j){
+      int neighbors = findAlive(i,j);
+      if(neighbors <= 1){
+        nextGen[i][j] = '-';
+      }else if(neighbors == 2){
+        if(currGen[i][j] == 'X'){
+          nextGen[i][j] = 'X';
+        }else{
+          nextGen[i][j] = '-';
+        }
+      }else if(neighbors == 3){
+        if(currGen[i][j] == 'X'){
+          nextGen[i][j] = 'X';
+        }else{
+          nextGen[i][j] = 'X';
+        }
+      }else{
+        nextGen[i][j] = '-';
+      }
+    }
+  }
+  currGen = nextGen;
+  m_genCount++;
+}
+
+
+int Doughnut::findAlive(int currRow, int currColumn){
+  int count = 0;
+
+  if(currRow == 0 && currColumn == 0){ // Check top left corner
+    if(currGen[currRow+1][currColumn] == 'X'){//1
+      count++;
+    }if(currGen[currRow+1][currColumn+1] == 'X'){//2
+      count++;
+    }if(currGen[currRow][currColumn+1] == 'X'){//3
+      count++;
+    }if(currGen[currRow][currColumn + (m_columns - 1)] == 'X'){//4
+      count++;
+    }if(currGen[currRow+1][currColumn + (m_columns - 1)] == 'X'){//5
+      count++;
+    }if(currGen[m_rows-1][currColumn + (m_columns - 1)] == 'X'){//6
+      count++;
+    }if(currGen[currRow + (m_rows - 1)][currColumn] == 'X'){//7
+      count++;
+    }if(currGen[currRow + (m_rows - 1)][currColumn+1] == 'X'){//8
+      count++;
+    }
+
+  }else if (currRow == (m_rows-1) && currColumn == 0){ // Check bottom left corner
+    if(currGen[currRow-1][currColumn] == 'X'){//1
+      count++;
+    }if(currGen[currRow-1][currColumn+1] == 'X'){//2
+      count++;
+    }if(currGen[currRow][currColumn+1] == 'X'){//3
+      count++;
+    }if(currGen[currRow - (m_rows - 1)][currColumn] == 'X'){//4
+      count++;
+    }if(currGen[currRow - (m_rows - 1)][currColumn+1] == 'X'){//5
+      count++;
+    }if(currGen[currRow - (m_rows - 1)][currColumn + (m_columns - 1)] == 'X'){//6
+      count++;
+    }if(currGen[currRow][currColumn + (m_columns - 1)] == 'X'){//7
+      count++;
+    }if(currGen[currRow-1][currColumn + (m_columns - 1)] == 'X'){//8
+      count++;
+    }
+
+  }else if (currRow == 0 && currColumn == (m_columns - 1)){ // Check top right corner
+    if(currGen[currRow][currColumn-1] == 'X'){
+      count++;
+    }if(currGen[currRow-1][currColumn] == 'X'){
+      count++;
+    }if(currGen[currRow-1][currColumn-1] == 'X'){
+      count++;
+    }if(currGen[m_rows-1][currColumn] == 'X'){
+      count++;
+    }if(currGen[m_rows-1][currColumn-1] == 'X'){
+      count++;
+    }if(currGen[m_rows-1][currColumn - (m_columns - 1)] == 'X'){
+      count++;
+    }if(currGen[currRow][currColumn - (m_columns - 1)] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn - (m_columns - 1)] == 'X'){
+      count++;
+    }
+  }else if (currRow == (m_rows - 1) && currColumn == (m_columns - 1)){ // Check bottom right corner
+    if(currGen[currRow][currColumn-1] == 'X'){//1
+      count++;
+    }if(currGen[currRow-1][currColumn-1] == 'X'){//2
+      count++;
+    }if(currGen[currRow-1][currColumn] == 'X'){//3
+      count++;
+    }if(currGen[currRow-1][currColumn - (m_columns - 1)] == 'X'){//4
+      count++;
+    }if(currGen[currRow][currColumn - (m_columns - 1)] == 'X'){//5
+      count++;
+    }if(currGen[currRow - (m_rows - 1)][currColumn - (m_columns-1)] == 'X'){//6
+      count++;
+    }if(currGen[currRow - (m_rows - 1)][currColumn] == 'X'){//7
+      count++;
+    }if(currGen[currRow - (m_rows - 1)][currColumn-1] == 'X'){//8
+      count++;
+    }
+
+  }else if(currRow == 0 && (currColumn != 0 && currColumn != (m_columns - 1))){ // Checks top row
+    if(currGen[currRow][currColumn-1] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn-1] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn+1] == 'X'){
+      count++;
+    }if(currGen[currRow][currColumn+1] == 'X'){
+      count++;
+    }if(currGen[currRow + (m_rows - 1)][currColumn+1] == 'X'){
+      count++;
+    }if(currGen[currRow + (m_rows - 1)][currColumn] == 'X'){
+      count++;
+    }if(currGen[currRow + (m_rows - 1)][currColumn-1] == 'X'){
+      count++;
+    }
+
+  }else if (currRow == (m_rows - 1) && (currColumn != 0 && currColumn != (m_columns - 1))){ //Checks bottom row
+    if(currGen[currRow][currColumn-1] == 'X'){
+      count++;
+    }if(currGen[currRow-1][currColumn-1] == 'X'){
+      count++;
+    }if(currGen[currRow-1][currColumn] == 'X'){
+      count++;
+    }if(currGen[currRow-1][currColumn+1] == 'X'){
+      count++;
+    }if(currGen[currRow][currColumn+1] == 'X'){
+      count++;
+    }if(currGen[currRow - (m_rows - 1)][currColumn+1] == 'X'){
+      count++;
+    }if(currGen[currRow - (m_rows - 1)][currColumn] == 'X'){
+      count++;
+    }if(currGen[currRow - (m_rows - 1)][currColumn-1] == 'X'){
+      count++;
+    }
+
+  }else if (currColumn == 0 && (currRow != 0 && currRow != (m_rows - 1))){ // Checks left column
+    if(currGen[currRow-1][currColumn] == 'X'){
+      count++;
+    }if(currGen[currRow-1][currColumn+1] == 'X'){
+      count++;
+    }if(currGen[currRow][currColumn+1] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn+1] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn + (m_columns - 1)] == 'X'){
+      count++;
+    }if(currGen[currRow][currColumn + (m_columns - 1)] == 'X'){
+      count++;
+    }if(currGen[currRow-1][currColumn + (m_columns - 1)] == 'X'){
+      count++;
+    }
+
+  }else if (currColumn == (m_columns -1) && (currRow!= 0 && currRow != (m_rows-1))){ // Checks right column
+    if(currGen[currRow+1][currColumn] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn-1] == 'X'){
+      count++;
+    }if(currGen[currRow][currColumn-1] == 'X'){
+      count++;
+    }if(currGen[currRow-1][currColumn-1] == 'X'){
+      count++;
+    }if(currGen[currRow-1][currColumn] == 'X'){
+      count++;
+    }if(currGen[currRow-1][currColumn - (m_columns - 1)] == 'X'){
+      count++;
+    }if(currGen[currRow][currColumn - (m_columns - 1)] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn - (m_columns - 1)] == 'X'){
+      count++;
+    }
+
+  }
+  else{ // Checks for all cells not on boundary
+    if(currGen[currRow-1][currColumn-1] == 'X'){
+      count++;
+    }if(currGen[currRow-1][currColumn] == 'X'){
+      count++;
+    }if(currGen[currRow-1][currColumn+1] == 'X'){
+      count++;
+    }if(currGen[currRow][currColumn-1] == 'X'){
+      count++;
+    }if(currGen[currRow][currColumn+1] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn-1] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn] == 'X'){
+      count++;
+    }if(currGen[currRow+1][currColumn+1] == 'X'){
+      count++;
+    }
+  }
+
+  return count;
+}
