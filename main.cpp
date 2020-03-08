@@ -53,7 +53,7 @@ int main(int argc, char **argv){
   mine.Simulate();
   cout << "New Gen" << endl;
   mine.DisplayGen();
-  mine.~Classic();
+  // mine.~Classic();
 
   return 0;
 }
