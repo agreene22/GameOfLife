@@ -52,7 +52,7 @@ int main(int argc, char **argv){
   mine.DisplayGen();
   mine.Simulate();
   mine.DisplayGen();
-  // mine.~Classic(); // This is the line causing the double free or corruption error
+  
 
 
   return 0;
