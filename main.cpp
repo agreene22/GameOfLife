@@ -19,6 +19,7 @@ int main(int argc, char **argv){
   mapChoice = tolower(mapChoice);
   if(mapChoice == 'y'){
     map = m->SetMap(userRows, userColumns);
+    cout << "YABOI" << endl;
   }else{
     cout << "Enter the number of rows you would like in the grid: " << endl;
     cin >> userRows;
@@ -61,6 +62,7 @@ int main(int argc, char **argv){
     outFS.close();
   }
   // Classic mine = Classic(5,5,0.6);
+  cout << "IM HERE" << endl;
   mine.DisplayGen(); // getting segmentation fault but not sure why
   mine.Simulate();
   mine.DisplayGen();
