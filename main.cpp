@@ -46,10 +46,21 @@ int main(int argc, char **argv){
     return 1;
   }
 
-  m->ChooseOutput();
+  int out = m->ChooseOutput();
 
-  // Classic mine = Classic(5,5,0.6);
   Classic mine = Classic(map, userRows, userColumns); // Error when declaring within if statement because then out of scope for method calls later
+
+  if (out == 1){
+    // BRIEF PAUSE
+  } else if (out == 2){
+    // PRESS ENTER
+  } else{
+    ofstream outFS;
+    outFS.open("generationOutput.txt");
+    // outFS << mine.DisplayGen(); // can't write to file like this because it doesn't return anything
+    outFS.close();
+  }
+  // Classic mine = Classic(5,5,0.6);
   mine.DisplayGen(); // getting segmentation fault but not sure why
   mine.Simulate();
   mine.DisplayGen();

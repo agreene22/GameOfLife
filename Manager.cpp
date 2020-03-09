@@ -15,7 +15,7 @@ Manager::Manager(char mapChoice, int gameMode, int outOption){
 }
 
 Manager::~Manager(){
-  //
+  // idk if we need a destructor
 }
 
 
@@ -69,6 +69,7 @@ char** Manager::SetMap(int& userRows, int& userColumns){
       }
     }
   }
+  inFS.close();
 }
 
 int Manager::ChooseBoundary(){

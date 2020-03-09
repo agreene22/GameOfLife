@@ -12,7 +12,7 @@ public:
   int ChooseBoundary();
   int ChooseOutput();
 private:
-  char m_mapChoice; // Should these be member variables
+  char m_mapChoice;
   int m_gameMode;
   int m_outOption;
 };
