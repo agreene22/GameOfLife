@@ -27,8 +27,6 @@ char** Manager::SetMap(int& userRows, int& userColumns){
   string mapRow = "";
   char** gen;
 
-
-
   cout << "Enter the map file name: " << endl;
   cin >> fileName;
   inFS.open(fileName);
@@ -57,21 +55,16 @@ char** Manager::SetMap(int& userRows, int& userColumns){
       for(int i = 0; i < userRows; ++i) {
           gen[i] = new char[userColumns];
       }
-
-      //cout << "Reading in" << endl;
       inFS >> mapRow;
       if(!inFS.fail()){
-        //cout << "For loop" << endl;
         for(int i = 0; i < mapRow.size(); ++i){
           gen[lineCount-2][i] = mapRow[i];
         }
       }
       ++lineCount;
     }else{
-      //cout << "Reading in" << endl;
       inFS >> mapRow;
       if(!inFS.fail()){
-        //cout << "For loop" << endl;
         for(int i = 0; i < mapRow.size(); ++i){
           gen[lineCount-2][i] = mapRow[i];
         }
