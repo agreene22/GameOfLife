@@ -25,6 +25,7 @@ char** Manager::SetMap(int& userRows, int& userColumns){
   ifstream inFS;
   string fileName = "";
   string mapRow = "";
+  char** gen;
 
 
 
@@ -52,7 +53,7 @@ char** Manager::SetMap(int& userRows, int& userColumns){
         continue;
       }
     }else if(lineCount == 2){
-      char** gen = new char*[userRows];
+      gen = new char*[userRows];
       for(int i = 0; i < userRows; ++i) {
           gen[i] = new char[userColumns];
       }
@@ -87,8 +88,8 @@ char** Manager::SetMap(int& userRows, int& userColumns){
       }
     }
   }
-  return gen;
   inFS.close();
+  return gen;
 }
 
 int Manager::ChooseBoundary(){
