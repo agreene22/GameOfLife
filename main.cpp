@@ -62,8 +62,8 @@ int main(int argc, char **argv){
     // outFS << mine.DisplayGen(); // can't write to file like this because it doesn't return anything
     outFS.close();
   }
-  // Classic mine = Classic(5,5,0.6);
-  mine->DisplayGen(); // getting segmentation fault but not sure why  //if i put classic1 or classic2 instead of mine i get a seg fault
+
+  mine->DisplayGen(); // getting segmentation fault but not sure why
   mine->Simulate();
   mine->DisplayGen();
 
