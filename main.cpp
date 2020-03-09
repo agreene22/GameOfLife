@@ -12,6 +12,8 @@ int main(int argc, char **argv){
   float userDensity = 0.0;
   char** map;
   Manager* m = new Manager();
+  Classic* classic1;
+  Classic* classic2;
 
   char mapChoice = '\0';
   cout << "Would you like to provide a map file? (y/n)" << endl;
@@ -30,9 +32,9 @@ int main(int argc, char **argv){
 
   int b = m->ChooseBoundary();
   if(b == 1 && mapChoice != 'y'){
-    Classic mine = Classic(userRows,userColumns,userDensity);
+    Classic* classic1 = new Classic(userRows,userColumns,userDensity);
   }else if (b == 1 && mapChoice == 'y'){
-    Classic mine = Classic(map, userRows, userColumns);
+    Classic* classic2 = new Classic(map, userRows, userColumns);
   }else if(b == 2 && mapChoice != 'y'){
     //Doughnut mine = Doughnut(userRows,userColumns,userDensity);
   }else if (b == 2 && mapChoice == 'y'){
@@ -61,8 +63,7 @@ int main(int argc, char **argv){
     outFS.close();
   }
   // Classic mine = Classic(5,5,0.6);
-  cout << "IM HERE" << endl;
-  mine->DisplayGen(); // getting segmentation fault but not sure why
+  mine->DisplayGen(); // getting segmentation fault but not sure why  //if i put classic1 or classic2 instead of mine i get a seg fault
   mine->Simulate();
   mine->DisplayGen();
 

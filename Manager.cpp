@@ -81,9 +81,14 @@ int Manager::ChooseBoundary(){
   int gameMode;
   cout << "Choose a boundary mode: (1) classic, (2) doughnut, (3) mirror" << endl;
   cin >> gameMode;
-  m_gameMode = gameMode;
-  cout << endl;
-  return m_gameMode;
+  if(gameMode != 1 && gameMode != 2 && gameMode != 3){
+    cout << "Invalid input. Terminating program." << endl;
+    exit(0);
+  }else{
+    m_gameMode = gameMode;
+    cout << endl;
+    return m_gameMode;
+  }
 }
 
 int Manager::ChooseOutput(){
@@ -91,7 +96,12 @@ int Manager::ChooseOutput(){
   cout << "Would you like " << endl << "(1) a brief pause between generations" << endl << "(2) press enter to display the next generation " << endl << "(3) output everything to a file" << endl;
   cout << "Enter 1, 2, or 3" << endl;
   cin >> outOption;
-  m_outOption = outOption;
-  cout << endl;
-  return outOption;
+  if(outOption != 1 && outOption != 2 && outOption != 3){
+    cout << "Invalid input. Terminating program." << endl;
+    exit(0);
+  }else{
+    m_outOption = outOption;
+    cout << endl;
+    return outOption;
+  }
 }
