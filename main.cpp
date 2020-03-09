@@ -34,11 +34,11 @@ int main(int argc, char **argv){
     Classic mine = Classic(userRows,userColumns,userDensity);
   }else if (b == 1 && mapChoice == 'y'){
     Classic mine = Classic(map, userRows, userColumns);
-  }else if(b == 2){
+  }else if(b == 2 && mapChoice != 'y'){
     //Doughnut mine = Doughnut(userRows,userColumns,userDensity);
   }else if (b == 2 && mapChoice == 'y'){
     //Doughnut mine = Doughnut(); // We want doughnut game mode but with their map they passed
-  }else if(b == 3){
+  }else if(b == 3 77 mapChoice != 'y'){
     //Mirror mine = Mirror(userRows,userColumns,userDensity);
   }else if (b == 3 && mapChoice == 'y'){
     //Mirror mine = Mirror(); // We want classic game mode but with their map they passed

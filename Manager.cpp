@@ -76,14 +76,6 @@ char** Manager::SetMap(int& userRows, int& userColumns){
           gen[lineCount-2][i] = mapRow[i];
         }
 
-
-        //for(int i = 0; i < userRows; ++i){
-          //for(int j = 0; j < userColumns; ++j){
-            //for(int k = 0; k < mapRow.size(); ++k){
-              //gen[i][j] = mapRow[k];
-            //}
-          //}
-        //}
         ++lineCount;
       }
     }
