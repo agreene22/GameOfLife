@@ -15,20 +15,19 @@ Manager::Manager(char mapChoice, int gameMode, int outOption){
 }
 
 Manager::~Manager(){
-  //m_mapChoice = mapChoice;
-  //m_gameMode = gameMode;
-  //m_outOption = outOption;
+  //
 }
 
 
-char** Manager::SetMap(){ // I'm not sure if I can return like this
+char** Manager::SetMap(int& userRows, int& userColumns){ // I'm not sure if I can return like this
   int lineCount = 0;
-  int userRows = 0;
-  int userColumns = 0;
+  // int userRows = 0;
+  // int userColumns = 0;
   float userDensity = 0.0;
   ifstream inFS;
   string fileName = "";
   string mapRow = "";
+
   // char mapChoice = '\0';
   //
   // cout << "Would you like to provide a map file? (y/n)" << endl;
@@ -60,22 +59,32 @@ char** Manager::SetMap(){ // I'm not sure if I can return like this
     if(lineCount == 0){
       inFS >> userRows;
       if(!inFS.fail()){
-        continue;
         ++lineCount;
+        continue;
       }
     }else if(lineCount == 1){
       inFS >> userColumns;
       if(!inFS.fail()){
-        continue;
         ++lineCount;
+        continue;
       }
     }else{
       inFS >> mapRow;
       if(!inFS.fail()){
-        for(int i = 0; i < mapRow.size(); ++i){
-          mapRow[i]; // NEED TO put the letter into the array to fill the grid
-        }
         ++lineCount;
+        char** gen = new char*[userRows];
+        for(int i = 0; i < userRows; ++i) {
+            gen[i] = new char[userColumns];
+        }
+
+        for(int i = 0; i < userRows; ++i){
+          for(int j = 0; j < userColumns; ++j){
+            for(int k = 0; k < mapRow.size(); ++k){
+              gen[i][j] = mapRow[k];
+            }
+          }
+        }
+        return gen;
       }
     }
   }

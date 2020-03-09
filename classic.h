@@ -5,7 +5,7 @@ class Classic{
 public:
   Classic();
   Classic(int rows, int columns, float density);
-  Classic(char** grid);
+  Classic(char** grid, int rows, int columns);
   ~Classic();
 
   // void PopulateFirstGen(int popDensity); // Should we create two methods? One for if they provide a file and one for if they don't // the overloaded constructor will be used if they dont provide a file

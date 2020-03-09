@@ -1,5 +1,7 @@
 #include "doughnut.h"
 
+using namespace std;
+
 char** Doughnut::init(int rows, int cols, float density){
   char **gen = new char*[rows];
   for(int i = 0; i < rows; ++i) {

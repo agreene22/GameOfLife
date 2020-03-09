@@ -10,6 +10,7 @@ int main(int argc, char **argv){
   int userRows = 0;
   int userColumns = 0;
   float userDensity = 0.0;
+  char** map;
   Manager* m = new Manager();
 
   char mapChoice = '\0';
@@ -17,7 +18,7 @@ int main(int argc, char **argv){
   cin >> mapChoice;
   mapChoice = tolower(mapChoice);
   if(mapChoice == 'y'){
-    m->SetMap();
+    map = m->SetMap(userRows, userColumns);
   }else{
     cout << "Enter the number of rows you would like in the grid: " << endl;
     cin >> userRows;
@@ -31,7 +32,7 @@ int main(int argc, char **argv){
   if(b == 1 && mapChoice != 'y'){
     Classic mine = Classic(userRows,userColumns,userDensity);
   }else if (b == 1 && mapChoice == 'y'){
-    //Classic mine = Classic(); // We want classic game mode but with their map they passed
+    Classic mine = Classic(map, userRows, userColumns); // We want classic game mode but with their map they passed
   }else if(b == 2){
     //Doughnut mine = Doughnut(userRows,userColumns,userDensity);
   }else if (b == 2 && mapChoice == 'y'){
@@ -48,12 +49,10 @@ int main(int argc, char **argv){
   m->ChooseOutput();
 
 
-  Classic mine = Classic(5,5,0.6);
+  // Classic mine = Classic(5,5,0.6);
   mine.DisplayGen();
   mine.Simulate();
   mine.DisplayGen();
-  
-
 
   return 0;
 }

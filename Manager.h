@@ -8,7 +8,7 @@ public:
   Manager(char mapChoice, int gameMode, int outOption);
   ~Manager();
 
-  char** SetMap();
+  char** SetMap(int& userRows, int& userColumns);
   int ChooseBoundary();
   int ChooseOutput();
 private:
