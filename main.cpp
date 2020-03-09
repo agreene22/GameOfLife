@@ -32,7 +32,7 @@ int main(int argc, char **argv){
   if(b == 1 && mapChoice != 'y'){
     Classic mine = Classic(userRows,userColumns,userDensity);
   }else if (b == 1 && mapChoice == 'y'){
-    Classic mine = Classic(map, userRows, userColumns); // We want classic game mode but with their map they passed
+    Classic mine = Classic(map, userRows, userColumns);
   }else if(b == 2){
     //Doughnut mine = Doughnut(userRows,userColumns,userDensity);
   }else if (b == 2 && mapChoice == 'y'){
@@ -48,9 +48,9 @@ int main(int argc, char **argv){
 
   m->ChooseOutput();
 
-
   // Classic mine = Classic(5,5,0.6);
-  mine.DisplayGen();
+  Classic mine = Classic(map, userRows, userColumns); // Error when declaring within if statement because then out of scope for method calls later
+  mine.DisplayGen(); // getting segmentation fault but not sure why
   mine.Simulate();
   mine.DisplayGen();
 

@@ -5,7 +5,7 @@ class Mirror{
   public:
     Mirror();
     Mirror(int rows, int columns, float density);
-    Mirror(char** grid);
+    Mirror(char** grid, int rows, int columns);
     ~Mirror();
 
     void DisplayGen(); //no need for parameters on these functions

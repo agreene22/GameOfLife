@@ -38,8 +38,12 @@ Mirror::Mirror(int rows, int columns, float density){
   m_columns = columns;
 }
 
-Mirror::Mirror(char** grid){
-
+Mirror::Mirror(char** map, int rows, int columns){
+  currGen = map;
+  nextGen = init(rows, columns, 0.0);
+  m_genCount = 0;
+  m_rows = rows;
+  m_columns = columns;
 }
 
 Mirror::~Mirror(){

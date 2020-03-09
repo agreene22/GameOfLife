@@ -5,7 +5,7 @@ class Doughnut{
 public:
   Doughnut();
   Doughnut(int rows, int columns, float density);
-  Doughnut(char** grid);
+  Doughnut(char** grid, int rows, int columns);
   ~Doughnut();
 
   void DisplayGen(); //no need for parameters on these functions

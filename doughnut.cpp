@@ -38,10 +38,13 @@ Doughnut::Doughnut(int rows, int columns, float density){
   m_columns = columns;
 }
 
-Doughnut::Doughnut(char** grid){
-  //pass in the user grid
+Doughnut::Doughnut(char** map, int rows, int columns){
+  currGen = map;
+  nextGen = init(rows, columns, 0.0);
+  m_genCount = 0;
+  m_rows = rows;
+  m_columns = columns;
 }
-
 
 
 Doughnut::~Doughnut(){
