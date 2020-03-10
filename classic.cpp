@@ -76,7 +76,7 @@ void Classic::Simulate(){
       }
     }
   }
-  currGen = nextGen; // do we need to null out next gen maybe?
+  currGen = nextGen;
   nextGen = init(m_rows, m_columns, 0.0);
   m_genCount++;
 }
@@ -103,18 +103,12 @@ int Classic::findAlive(int currRow, int currColumn){
       count++;
     }
   }else if (currRow == 0 && currColumn == (m_columns - 1)){ // Check top right corner
-    cout << "top right corner  "; // REMOVE THESE LATER
-    cout << currRow << " " << currColumn-1 << " ";
-    cout << currGen[currRow][currColumn-1] << endl;
     if(currGen[currRow][currColumn-1] == 'X'){
       count++;
-      cout << "+ ";
     }if(currGen[currRow+1][currColumn-1] == 'X'){
       count++;
-      cout << "+ ";
     }if(currGen[currRow+1][currColumn] == 'X'){
       count++;
-      cout << "+ ";
     }
   }else if (currRow == (m_rows - 1) && currColumn == (m_columns - 1)){ // Check bottom right corner
     if(currGen[currRow-1][currColumn-1] == 'X'){

@@ -86,6 +86,7 @@ void Doughnut::Simulate(){
     }
   }
   currGen = nextGen;
+  nextGen = init(m_rows, m_columns, 0.0);
   m_genCount++;
 }
 
