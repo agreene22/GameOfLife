@@ -32,7 +32,7 @@ char** Manager::SetMap(int& userRows, int& userColumns){
 
   cout << "Enter the map file name: " << endl;
   cin >> fileName;
-  inFS.open(fileName);
+  inFS.open(fileName, ifstream::in);
 
   if(!inFS.is_open()){
     cout << "Error: Could not open file." << endl;
@@ -107,6 +107,13 @@ int Manager::ChooseOutput(){
     cout << endl;
     return outOption;
   }
+}
+
+int Manager::ChooseCycles(){
+  int output = 0;
+  cout << "How many iterations would you like?" << endl;
+  cin >> output;
+  return output;
 }
 
 

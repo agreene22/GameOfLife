@@ -11,6 +11,7 @@ public:
   char** SetMap(int& userRows, int& userColumns);
   int ChooseBoundary();
   int ChooseOutput();
+  int ChooseCycles();
 
   // void Simulation(Classic *game); //Can overload the constructor so that way it runs game of correct type
   // void Simulation(Doughnut *game);
