@@ -51,6 +51,14 @@ Mirror::~Mirror(){
   delete nextGen;
 }
 
+bool Mirror::isEmpty(){
+
+}
+
+bool Mirror::isStable(){
+
+}
+
 void Mirror::DisplayGen(){
   for(int i = 0; i < m_rows; ++i){
     for(int j = 0; j < m_columns; ++j){

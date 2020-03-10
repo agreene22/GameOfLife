@@ -52,6 +52,14 @@ Doughnut::~Doughnut(){
   delete nextGen;
 }
 
+bool Dougnut::isEmpty(){
+
+}
+
+bool Dougnut::isStable(){
+
+}
+
 void Doughnut::DisplayGen(){
   cout << "Generation " << m_genCount << endl;
   for(int i = 0; i < m_rows; ++i){

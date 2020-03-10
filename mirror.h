@@ -12,6 +12,8 @@ class Mirror{
     void Simulate(); //no need for parameters on these functions
     int findAlive(int currRow, int currColumn);
     char** init(int rows, int cols, float density);
+    bool isStable();
+    bool isEmpty();
 
   private:
     char** currGen;

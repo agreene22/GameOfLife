@@ -12,6 +12,9 @@ public:
   void Simulate();
   int findAlive(int currRow, int currColumn);
   char** init(int rows, int cols, float density);
+  bool isStable();
+  bool isEmpty();
+
 
 
 private:

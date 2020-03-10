@@ -43,6 +43,14 @@ Classic::~Classic(){
   delete nextGen;
 }
 
+bool Classic::isEmpty(){
+
+}
+
+bool Classic::isStable(){
+
+}
+
 void Classic::DisplayGen(){
   cout << "Generation " << m_genCount << endl;
   for(int i = 0; i < m_rows; ++i){
@@ -187,6 +195,6 @@ int Classic::findAlive(int currRow, int currColumn){
       count++;
     }
   }
-  cout << m_genCount << ": " << currRow << " " << currColumn << ", count:" << count << endl;
+  //cout << m_genCount << ": " << currRow << " " << currColumn << ", count:" << count << endl;
   return count;
 }
