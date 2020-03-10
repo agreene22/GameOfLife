@@ -56,7 +56,7 @@ int main(int argc, char **argv){
 
   int out = m->ChooseOutput();
 
-  Mirror* mine = new Mirror(map, userRows, userColumns); // Error when declaring within if statement because then out of scope for method calls later
+  Doughnut* mine = new Doughnut(map, userRows, userColumns); // Error when declaring within if statement because then out of scope for method calls later
 
   if (out == 1){
     // sleep(3000); // do this to create 3 second pause

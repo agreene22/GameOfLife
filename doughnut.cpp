@@ -135,19 +135,19 @@ int Doughnut::findAlive(int currRow, int currColumn){
   }else if (currRow == 0 && currColumn == (m_columns - 1)){ // Check top right corner
     if(currGen[currRow][currColumn-1] == 'X'){
       count++;
-    }if(currGen[currRow-1][currColumn] == 'X'){
+    }if(currGen[currRow+1][currColumn] == 'X'){
       count++;
-    }if(currGen[currRow-1][currColumn-1] == 'X'){
+    }if(currGen[currRow+1][currColumn-1] == 'X'){
       count++;
     }if(currGen[m_rows-1][currColumn] == 'X'){
-      count++;
+      count++; // SAME AS LAST TWO
     }if(currGen[m_rows-1][currColumn-1] == 'X'){
+      count++; //SAME
+    }if(currGen[m_rows-1][0] == 'X'){
       count++;
-    }if(currGen[m_rows-1][currColumn - (m_columns - 1)] == 'X'){
+    }if(currGen[currRow][0] == 'X'){
       count++;
-    }if(currGen[currRow][currColumn - (m_columns - 1)] == 'X'){
-      count++;
-    }if(currGen[currRow+1][currColumn - (m_columns - 1)] == 'X'){
+    }if(currGen[currRow+1][0] == 'X'){
       count++;
     }
   }else if (currRow == (m_rows - 1) && currColumn == (m_columns - 1)){ // Check bottom right corner
@@ -157,15 +157,15 @@ int Doughnut::findAlive(int currRow, int currColumn){
       count++;
     }if(currGen[currRow-1][currColumn] == 'X'){//3
       count++;
-    }if(currGen[currRow-1][currColumn - (m_columns - 1)] == 'X'){//4
+    }if(currGen[currRow-1][0] == 'X'){//4
       count++;
-    }if(currGen[currRow][currColumn - (m_columns - 1)] == 'X'){//5
+    }if(currGen[currRow][0] == 'X'){//5
       count++;
-    }if(currGen[currRow - (m_rows - 1)][currColumn - (m_columns-1)] == 'X'){//6
+    }if(currGen[0][0] == 'X'){//6
       count++;
-    }if(currGen[currRow - (m_rows - 1)][currColumn] == 'X'){//7
+    }if(currGen[0][currColumn] == 'X'){//7
       count++;
-    }if(currGen[currRow - (m_rows - 1)][currColumn-1] == 'X'){//8
+    }if(currGen[0][currColumn-1] == 'X'){//8
       count++;
     }
 
@@ -180,11 +180,11 @@ int Doughnut::findAlive(int currRow, int currColumn){
       count++;
     }if(currGen[currRow][currColumn+1] == 'X'){
       count++;
-    }if(currGen[currRow + (m_rows - 1)][currColumn+1] == 'X'){
+    }if(currGen[m_rows - 1][currColumn+1] == 'X'){
       count++;
-    }if(currGen[currRow + (m_rows - 1)][currColumn] == 'X'){
+    }if(currGen[m_rows - 1][currColumn] == 'X'){
       count++;
-    }if(currGen[currRow + (m_rows - 1)][currColumn-1] == 'X'){
+    }if(currGen[m_rows - 1][currColumn-1] == 'X'){
       count++;
     }
 
@@ -199,11 +199,11 @@ int Doughnut::findAlive(int currRow, int currColumn){
       count++;
     }if(currGen[currRow][currColumn+1] == 'X'){
       count++;
-    }if(currGen[currRow - (m_rows - 1)][currColumn+1] == 'X'){
+    }if(currGen[0][currColumn+1] == 'X'){
       count++;
-    }if(currGen[currRow - (m_rows - 1)][currColumn] == 'X'){
+    }if(currGen[0][currColumn] == 'X'){
       count++;
-    }if(currGen[currRow - (m_rows - 1)][currColumn-1] == 'X'){
+    }if(currGen[0][currColumn-1] == 'X'){
       count++;
     }
 
@@ -218,11 +218,11 @@ int Doughnut::findAlive(int currRow, int currColumn){
       count++;
     }if(currGen[currRow+1][currColumn] == 'X'){
       count++;
-    }if(currGen[currRow+1][currColumn + (m_columns - 1)] == 'X'){
+    }if(currGen[currRow+1][m_columns - 1] == 'X'){
       count++;
-    }if(currGen[currRow][currColumn + (m_columns - 1)] == 'X'){
+    }if(currGen[currRow][m_columns - 1] == 'X'){
       count++;
-    }if(currGen[currRow-1][currColumn + (m_columns - 1)] == 'X'){
+    }if(currGen[currRow-1][m_columns - 1] == 'X'){
       count++;
     }
 
@@ -237,11 +237,11 @@ int Doughnut::findAlive(int currRow, int currColumn){
       count++;
     }if(currGen[currRow-1][currColumn] == 'X'){
       count++;
-    }if(currGen[currRow-1][currColumn - (m_columns - 1)] == 'X'){
+    }if(currGen[currRow-1][0] == 'X'){
       count++;
-    }if(currGen[currRow][currColumn - (m_columns - 1)] == 'X'){
+    }if(currGen[currRow][0] == 'X'){
       count++;
-    }if(currGen[currRow+1][currColumn - (m_columns - 1)] == 'X'){
+    }if(currGen[currRow+1][0] == 'X'){
       count++;
     }
 
