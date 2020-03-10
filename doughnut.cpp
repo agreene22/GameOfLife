@@ -101,15 +101,15 @@ int Doughnut::findAlive(int currRow, int currColumn){
       count++;
     }if(currGen[currRow][currColumn+1] == 'X'){//3
       count++;
-    }if(currGen[currRow][currColumn + (m_columns - 1)] == 'X'){//4
+    }if(currGen[currRow][m_columns - 1] == 'X'){//4
       count++;
-    }if(currGen[currRow+1][currColumn + (m_columns - 1)] == 'X'){//5
+    }if(currGen[currRow+1][m_columns - 1] == 'X'){//5
       count++;
-    }if(currGen[m_rows-1][currColumn + (m_columns - 1)] == 'X'){//6
+    }if(currGen[m_rows-1][m_columns - 1] == 'X'){//6
       count++;
-    }if(currGen[currRow + (m_rows - 1)][currColumn] == 'X'){//7
+    }if(currGen[m_rows - 1][currColumn] == 'X'){//7
       count++;
-    }if(currGen[currRow + (m_rows - 1)][currColumn+1] == 'X'){//8
+    }if(currGen[m_rows - 1][currColumn+1] == 'X'){//8
       count++;
     }
 
@@ -120,15 +120,15 @@ int Doughnut::findAlive(int currRow, int currColumn){
       count++;
     }if(currGen[currRow][currColumn+1] == 'X'){//3
       count++;
-    }if(currGen[currRow - (m_rows - 1)][currColumn] == 'X'){//4
+    }if(currGen[0][currColumn] == 'X'){//4
       count++;
-    }if(currGen[currRow - (m_rows - 1)][currColumn+1] == 'X'){//5
+    }if(currGen[0][currColumn+1] == 'X'){//5
       count++;
-    }if(currGen[currRow - (m_rows - 1)][currColumn + (m_columns - 1)] == 'X'){//6
+    }if(currGen[0][m_columns - 1] == 'X'){//6
       count++;
-    }if(currGen[currRow][currColumn + (m_columns - 1)] == 'X'){//7
+    }if(currGen[currRow][m_columns - 1] == 'X'){//7
       count++;
-    }if(currGen[currRow-1][currColumn + (m_columns - 1)] == 'X'){//8
+    }if(currGen[currRow-1][m_columns - 1] == 'X'){//8
       count++;
     }
 

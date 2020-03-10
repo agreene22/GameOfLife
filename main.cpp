@@ -56,7 +56,7 @@ int main(int argc, char **argv){
 
   int out = m->ChooseOutput();
 
-  // Classic* mine = new Classic(map, userRows, userColumns); // Error when declaring within if statement because then out of scope for method calls later
+  Mirror* mine = new Mirror(map, userRows, userColumns); // Error when declaring within if statement because then out of scope for method calls later
 
   if (out == 1){
     // sleep(3000); // do this to create 3 second pause
@@ -69,11 +69,11 @@ int main(int argc, char **argv){
     outFS.close();
   }
 
-  // mine->DisplayGen(); // getting segmentation fault but not sure why
-  // mine->Simulate();
-  // mine->DisplayGen();
-  // mine->Simulate();
-  // mine->DisplayGen();
+  mine->DisplayGen(); // getting segmentation fault but not sure why
+  mine->Simulate();
+  mine->DisplayGen();
+  mine->Simulate();
+  mine->DisplayGen();
 
   return 0;
 }
