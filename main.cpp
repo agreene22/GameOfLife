@@ -66,6 +66,8 @@ int main(int argc, char **argv){
   mine->DisplayGen(); // getting segmentation fault but not sure why
   mine->Simulate();
   mine->DisplayGen();
+  mine->Simulate();
+  mine->DisplayGen();
 
   return 0;
 }
