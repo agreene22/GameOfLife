@@ -33,16 +33,22 @@ int main(int argc, char **argv){
   int b = m->ChooseBoundary();
   if(b == 1 && mapChoice != 'y'){
     Classic* classic1 = new Classic(userRows,userColumns,userDensity);
+    // m->Simulation(classic1); // I know this method isn't functional yet
   }else if (b == 1 && mapChoice == 'y'){
-    Classic* classic2 = new Classic(map, userRows, userColumns);
+    // Classic* classic2 = new Classic(map, userRows, userColumns);
+    // m->Simulation(classic2);
   }else if(b == 2 && mapChoice != 'y'){
-    //Doughnut mine = Doughnut(userRows,userColumns,userDensity);
+    // Doughnut* doughnut1 = new Doughnut(userRows,userColumns,userDensity);
+    // m->Simulation(doughnut1);
   }else if (b == 2 && mapChoice == 'y'){
-    //Doughnut mine = Doughnut(); // We want doughnut game mode but with their map they passed
+    // Doughnut* doughnut2 = new Doughnut(map, userRows, userColumns);
+    // m->Simulation(doughnut2);
   }else if(b == 3 && mapChoice != 'y'){
-    //Mirror mine = Mirror(userRows,userColumns,userDensity);
+    // mirror* mirror1 = new Mirror(userRows,userColumns,userDensity);
+    // m->Simulation(mirror1);
   }else if (b == 3 && mapChoice == 'y'){
-    //Mirror mine = Mirror(); // We want classic game mode but with their map they passed
+    // Mirror* mirror2 = new Mirror(map, userRows, userColumns);
+    // m->Simulation(mirror2);
   }else{
     cout << "Invalid input.";
     return 1;
@@ -50,10 +56,10 @@ int main(int argc, char **argv){
 
   int out = m->ChooseOutput();
 
-  Classic* mine = new Classic(map, userRows, userColumns); // Error when declaring within if statement because then out of scope for method calls later
+  // Classic* mine = new Classic(map, userRows, userColumns); // Error when declaring within if statement because then out of scope for method calls later
 
   if (out == 1){
-    // BRIEF PAUSE
+    // sleep(3000); // do this to create 3 second pause
   } else if (out == 2){
     // PRESS ENTER
   } else{
@@ -63,11 +69,11 @@ int main(int argc, char **argv){
     outFS.close();
   }
 
-  mine->DisplayGen(); // getting segmentation fault but not sure why
-  mine->Simulate();
-  mine->DisplayGen();
-  mine->Simulate();
-  mine->DisplayGen();
+  // mine->DisplayGen(); // getting segmentation fault but not sure why
+  // mine->Simulate();
+  // mine->DisplayGen();
+  // mine->Simulate();
+  // mine->DisplayGen();
 
   return 0;
 }

@@ -1,4 +1,7 @@
 #include "Manager.h"
+#include "classic.h"
+#include "doughnut.h"
+#include "mirror.h"
 
 using namespace std;
 
@@ -105,3 +108,25 @@ int Manager::ChooseOutput(){
     return outOption;
   }
 }
+
+
+// void Manager::Simulation(Classic *game){
+  // while(game->isStable() && game ->isDead()){
+  //   game->DisplayGen();
+  //   game->Simulate();
+  // }
+// }
+
+// void Manager::Simulation(Doughnut *game){
+  // while(game->isStable() && game ->isDead()){
+  //   game->DisplayGen();
+  //   game->Simulate();
+  // }
+// }
+
+// void Manager::Simulation(Mirror *game){
+  // while(game->isStable() && game ->isDead()){
+  //   game->DisplayGen();
+  //   game->Simulate();
+  // }
+// }
