@@ -67,6 +67,7 @@ bool Doughnut::isEmpty(){
 }
 
 bool Doughnut::isStable(){
+  return m_stable;
 
 }
 
@@ -103,13 +104,14 @@ void Doughnut::Simulate(){
       }
     }
   }
-  for(int i = 0; i < m_rows; ++i){
-    for(int j = 0; j < m_columns; ++j){
+  bool loop = true;
+  for(int i = 0; i < m_rows && loop; ++i){
+    for(int j = 0; j < m_columns && loop; ++j){
       if(currGen[i][j] == nextGen[i][j]){
         m_stable = true;
       }else{
         m_stable = false;
-        break;
+        loop = false;
       }
     }
   }

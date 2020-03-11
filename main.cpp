@@ -71,6 +71,8 @@ int main(int argc, char **argv){
 
   int loopCount = 0;
   while(true){
+    mine->DisplayGen();
+    mine->Simulate();
     if(mine->isStable()){
       cout << "Stable" << endl;
       break;
@@ -80,8 +82,6 @@ int main(int argc, char **argv){
     }if(loopCount > 1000){
       break;
     }
-    mine->DisplayGen();
-    mine->Simulate();
   }
   // mine->DisplayGen(); // getting segmentation fault but not sure why
   // mine->Simulate();
