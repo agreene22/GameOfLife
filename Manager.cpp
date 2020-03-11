@@ -1,4 +1,7 @@
 #include "Manager.h"
+#include "mirror.h"
+#include "classic.h"
+#include "doughnut.h"
 
 using namespace std;
 
@@ -114,12 +117,45 @@ int Manager::ChooseCycles(){
 }
 
 
-// void Manager::Simulation(Classic *game){
-//   while(game->isStable()){
-//     game->DisplayGen();
-//     game->Simulate();
-//   }
-// }
+void Manager::Simulation(Classic* game){
+  char choice = '\0';
+  cout << "Would you like a certain number of iterations? Enter (y/n)" << endl;
+  cin >> choice;
+  choice = tolower(choice);
+  if(choice == 'y'){
+    int cycles = ChooseCycles();
+    while(true){
+      game->DisplayGen();
+      game->Simulate();
+      if(game->isStable()){
+        cout << "Stable" << endl;
+        break;
+      }if(game->isEmpty()){
+        cout << "Empty" << endl;
+        break;
+      }if(loopCount >= cycles){
+        break;
+      }
+    }
+  }else if(choice == 'n'){
+    while(true){
+      game->DisplayGen();
+      game->Simulate();
+      if(game->isStable()){
+        cout << "Stable" << endl;
+        break;
+      }if(game->isEmpty()){
+        cout << "Empty" << endl;
+        break;
+      }if(loopCount > 1000){
+        break;
+      }
+    }
+  }else{
+    cout << "Invalid input." << endl;
+    exit(0);
+  }
+}
 
 // void Manager::Simulation(Doughnut *game){
   // while(game->isStable() && game ->isDead()){
