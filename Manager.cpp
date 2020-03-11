@@ -126,7 +126,7 @@ void Manager::Simulation1(Classic *game){
   if(choice == 'y'){
     int cycles = ChooseCycles();
     while(true){
-      Sleep(2500);
+      usleep(3);
       game->DisplayGen();
       game->Simulate();
       if(game->isStable()){
@@ -141,7 +141,7 @@ void Manager::Simulation1(Classic *game){
     }
   }else if(choice == 'n'){
     while(true){
-      Sleep(2500);
+      usleep(3);
       game->DisplayGen();
       game->Simulate();
       if(game->isStable()){
@@ -150,7 +150,7 @@ void Manager::Simulation1(Classic *game){
       }if(game->isEmpty()){
         cout << "Empty" << endl;
         break;
-      }if(loopCount > 10000){
+      }if(loopCount > 2000){
         break;
       }
     }
@@ -197,7 +197,7 @@ void Manager::Simulation2(Classic *game){
       }if(game->isEmpty()){
         cout << "Empty" << endl;
         break;
-      }if(loopCount > 10000){
+      }if(loopCount > 2000){
         break;
       }
     }
@@ -238,7 +238,7 @@ void Manager::Simulation3(Classic *game, string file){
       }if(game->isEmpty()){
         cout << "Empty" << endl;
         break;
-      }if(loopCount > 10000){
+      }if(loopCount > 2000){
         break;
       }
     }
@@ -257,7 +257,7 @@ void Manager::Simulation1(Mirror *game){//brief pause
   if(choice == 'y'){
     int cycles = ChooseCycles();
     while(true){
-      Sleep(2500);
+      usleep(3);
       game->DisplayGen();
       game->Simulate();
       if(game->isStable()){
@@ -272,7 +272,7 @@ void Manager::Simulation1(Mirror *game){//brief pause
     }
   }else if(choice == 'n'){
     while(true){
-      Sleep(2500);
+      usleep(3);
       game->DisplayGen();
       game->Simulate();
       if(game->isStable()){
@@ -281,7 +281,7 @@ void Manager::Simulation1(Mirror *game){//brief pause
       }if(game->isEmpty()){
         cout << "Empty" << endl;
         break;
-      }if(loopCount > 10000){
+      }if(loopCount > 2000){
         break;
       }
     }
@@ -328,7 +328,7 @@ void Manager::Simulation2(Mirror *game){//press enter
       }if(game->isEmpty()){
         cout << "Empty" << endl;
         break;
-      }if(loopCount > 10000){
+      }if(loopCount > 2000){
         break;
       }
     }
@@ -369,7 +369,7 @@ void Manager::Simulation3(Mirror *game, string file){
       }if(game->isEmpty()){
         cout << "Empty" << endl;
         break;
-      }if(loopCount > 10000){
+      }if(loopCount > 2000){
         break;
       }
     }
@@ -388,7 +388,7 @@ void Manager::Simulation1(Doughnut *game){//brief pause
   if(choice == 'y'){
     int cycles = ChooseCycles();
     while(true){
-      Sleep(2500);
+      usleep(3);
       game->DisplayGen();
       game->Simulate();
       if(game->isStable()){
@@ -403,7 +403,7 @@ void Manager::Simulation1(Doughnut *game){//brief pause
     }
   }else if(choice == 'n'){
     while(true){
-      Sleep(2500);
+      usleep(3);
       game->DisplayGen();
       game->Simulate();
       if(game->isStable()){
@@ -412,7 +412,7 @@ void Manager::Simulation1(Doughnut *game){//brief pause
       }if(game->isEmpty()){
         cout << "Empty" << endl;
         break;
-      }if(loopCount > 10000){
+      }if(loopCount > 2000){
         break;
       }
     }
@@ -459,7 +459,7 @@ void Manager::Simulation2(Doughnut *game){//press enter
       }if(game->isEmpty()){
         cout << "Empty" << endl;
         break;
-      }if(loopCount > 10000){
+      }if(loopCount > 2000){
         break;
       }
     }
@@ -500,7 +500,7 @@ void Manager::Simulation3(Doughnut *game, string file){//print to file
       }if(game->isEmpty()){
         cout << "Empty" << endl;
         break;
-      }if(loopCount > 10000){
+      }if(loopCount > 2000){
         break;
       }
     }
