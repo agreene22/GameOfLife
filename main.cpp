@@ -1,6 +1,3 @@
-#include "classic.h"
-#include "doughnut.h"
-#include "mirror.h"
 #include "manager.h"
 
 using namespace std;
@@ -14,6 +11,11 @@ int main(int argc, char **argv){
   Manager* m = new Manager();
   Classic* classic1;
   Classic* classic2;
+  Doughnut* doughnut1;
+  Doughnut* doughnut2;
+  Mirror* mirror1;
+  Mirror* mirror2;
+
 
   char mapChoice = '\0';
   cout << "Would you like to provide a map file? (y/n)" << endl;
@@ -31,10 +33,11 @@ int main(int argc, char **argv){
   }
 
   int b = m->ChooseBoundary();
-  if(b == 1 && mapChoice != 'y'){
+  int out = m->ChooseOutput();
+  if(b == 1 && mapChoice != 'y' && out == 1){
     Classic* classic1 = new Classic(userRows,userColumns,userDensity);
     // m->Simulation(classic1); // I know this method isn't functional yet
-  }else if (b == 1 && mapChoice == 'y'){
+  }else if (b == 1 && mapChoice == 'y' && out == 1){
     // Classic* classic2 = new Classic(map, userRows, userColumns);
     // m->Simulation(classic2);
   }else if(b == 2 && mapChoice != 'y'){
@@ -54,7 +57,7 @@ int main(int argc, char **argv){
     return 1;
   }
 
-  int out = m->ChooseOutput();
+  //int out = m->ChooseOutput();
 
   Doughnut* mine = new Doughnut(map, userRows, userColumns); // Error when declaring within if statement because then out of scope for method calls later
 
@@ -63,10 +66,10 @@ int main(int argc, char **argv){
   } else if (out == 2){
     // PRESS ENTER
   } else{
-    ofstream outFS;
-    outFS.open("generationOutput.txt");
+    //ofstream outFS;
+    //outFS.open("generationOutput.txt");
     // outFS << mine.DisplayGen(); // can't write to file like this because it doesn't return anything
-    outFS.close();
+    //outFS.close();
   }
 
   int loopCount = 0;

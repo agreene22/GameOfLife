@@ -1,5 +1,6 @@
 #include <iostream>
 #include <random>
+#include <fstream>
 
 class Doughnut{
   public:
@@ -9,6 +10,7 @@ class Doughnut{
     ~Doughnut();
 
     void DisplayGen(); //no need for parameters on these functions
+    void PrintGen(ofstream out);
     void Simulate(); //no need for parameters on these functions
     int findAlive(int currRow, int currColumn);
     char** init(int rows, int cols, float density);

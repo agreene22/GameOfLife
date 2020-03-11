@@ -77,6 +77,16 @@ void Mirror::DisplayGen(){
   }
 }
 
+void Doughnut::PrintGen(ofstream out){
+  cout << "Generation " << m_genCount << endl;
+  for(int i = 0; i < m_rows; ++i){
+    for(int j = 0; j < m_columns; ++j){
+      out << currGen[i][j];
+    }
+    out << endl;
+  }
+}
+
 void Mirror::Simulate(){
   for(int i = 0; i < m_rows; ++i){
     for(int j = 0; j < m_columns; ++j){
