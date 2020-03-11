@@ -69,7 +69,7 @@ int main(int argc, char **argv){
     outFS.close();
   }
 
-  while(mine->isStable() == false){
+  while(mine->isStable()){
     mine->DisplayGen();
     mine->Simulate();
   }

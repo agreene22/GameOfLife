@@ -49,16 +49,21 @@ bool Classic::isEmpty(){
   for(int i = 0; i < m_rows; ++i){
     for(int j = 0; j < m_columns; ++j){
       if(currGen[i][j] == 'X'){
-        return FALSE;
+        return false;
       }else{
         continue;
       }
     }
   }
-  return TRUE;
+  return true;
 }
 
 bool Classic::isStable(){
+  if(&currGen == &prevGen || m_genCount > 10){
+    return false;
+  }else{
+    return true;
+  }
 }
 
 void Classic::DisplayGen(){
@@ -95,6 +100,7 @@ void Classic::Simulate(){
     }
   }
   prevGen = currGen;
+  currGen = init(m_rows, m_columns,0.0);
   currGen = nextGen;
   nextGen = init(m_rows, m_columns, 0.0);
   m_genCount++;

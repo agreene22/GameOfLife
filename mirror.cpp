@@ -55,13 +55,13 @@ bool Mirror::isEmpty(){
   for(int i = 0; i < m_rows; ++i){
     for(int j = 0; j < m_columns; ++j){
       if(currGen[i][j] == 'X'){
-        return FALSE;
+        return false;
       }else{
         continue;
       }
     }
   }
-  return TRUE;
+  return true;
 }
 
 bool Mirror::isStable(){
