@@ -148,7 +148,7 @@ void Manager::Simulation1(Classic *game){
       }if(game->isEmpty()){
         cout << "Empty" << endl;
         break;
-      }if(loopCount > 1000){
+      }if(loopCount > 10000){
         break;
       }
     }
@@ -189,7 +189,7 @@ void Manager::Simulation2(Classic *game, ofstream outFS){
       }if(game->isEmpty()){
         cout << "Empty" << endl;
         break;
-      }if(loopCount > 1000){
+      }if(loopCount > 10000){
         break;
       }
     }
@@ -230,7 +230,7 @@ void Manager::Simulation1(Mirror *game){
       }if(game->isEmpty()){
         cout << "Empty" << endl;
         break;
-      }if(loopCount > 1000){
+      }if(loopCount > 10000){
         break;
       }
     }
@@ -271,7 +271,7 @@ void Manager::Simulation2(Mirror *game, ofstream outFS){
       }if(game->isEmpty()){
         cout << "Empty" << endl;
         break;
-      }if(loopCount > 1000){
+      }if(loopCount > 10000){
         break;
       }
     }
@@ -312,7 +312,7 @@ void Manager::Simulation1(Doughnut *game){
       }if(game->isEmpty()){
         cout << "Empty" << endl;
         break;
-      }if(loopCount > 1000){
+      }if(loopCount > 10000){
         break;
       }
     }
@@ -353,7 +353,7 @@ void Manager::Simulation2(Doughnut *game, ofstream outFS){
       }if(game->isEmpty()){
         cout << "Empty" << endl;
         break;
-      }if(loopCount > 1000){
+      }if(loopCount > 10000){
         break;
       }
     }

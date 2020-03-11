@@ -10,7 +10,7 @@ class Mirror{
     ~Mirror();
 
     void DisplayGen(); //no need for parameters on these functions
-    void PrintGen(ofstream out);
+    void PrintGen(std::ofstream out);
     void Simulate(); //no need for parameters on these functions
     int findAlive(int currRow, int currColumn);
     char** init(int rows, int cols, float density);
