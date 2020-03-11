@@ -109,8 +109,10 @@ void Classic::Simulate(){
   for(int i = 0; i < m_rows && loop; ++i){
     for(int j = 0; j < m_columns && loop; ++j){
       if(currGen[i][j] == nextGen[i][j]){
+        cout << "Current Generation" << " Row: " << i << " " << " Column : " << j << " " << currGen[i][j] << " Next Generation " << " Row: " << i << " Column : " << j << " " << nextGen[i][j] << endl;
         m_stable = true;
       }else{
+        cout << "Current Generation" << " Row: " << i << " " << " Column : " << j << " " << currGen[i][j] << " Next Generation " << " Row: " << i << " Column : " << j << " " << nextGen[i][j] << endl;
         m_stable = false;
         loop = false;
       }
