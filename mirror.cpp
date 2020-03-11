@@ -106,6 +106,7 @@ void Mirror::Simulate(){
         m_stable = true;
       }else{
         m_stable = false;
+        break;
       }
     }
   }
