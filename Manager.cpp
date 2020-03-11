@@ -158,7 +158,7 @@ void Manager::Simulation1(Classic *game){
   }
 }
 
-void Manager::Simulation2(Classic *game, ofstream outFS){
+void Manager::Simulation2(Classic *game, ofstream& outFS){
   int loopCount = 0;
   char choice = '\0';
   cout << "Would you like a certain number of iterations? Enter (y/n)" << endl;
@@ -240,7 +240,7 @@ void Manager::Simulation1(Mirror *game){
   }
 }
 
-void Manager::Simulation2(Mirror *game, ofstream outFS){
+void Manager::Simulation2(Mirror *game, ofstream& outFS){
   int loopCount = 0;
   char choice = '\0';
   cout << "Would you like a certain number of iterations? Enter (y/n)" << endl;
@@ -322,7 +322,7 @@ void Manager::Simulation1(Doughnut *game){
   }
 }
 
-void Manager::Simulation2(Doughnut *game, ofstream outFS){
+void Manager::Simulation2(Doughnut *game, ofstream& outFS){
   int loopCount = 0;
   char choice = '\0';
   cout << "Would you like a certain number of iterations? Enter (y/n)" << endl;
