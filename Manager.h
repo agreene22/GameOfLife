@@ -13,7 +13,6 @@ class Manager{
 public:
   Manager();
   Manager(char mapChoice, int gameMode, int outOption);
-  ~Manager();
 
   char** SetMap(int& userRows, int& userColumns);
   int ChooseBoundary();
@@ -29,9 +28,6 @@ public:
   void Simulation3(Doughnut *game, string file);
   void Simulation3(Mirror *game, string file);
 
-  // void Simulation(Classic* game); //Can overload the constructor so that way it runs game of correct type
-  // void Simulation(Doughnut *game);
-  // void Simulation(Mirror *game);
 private:
   char m_mapChoice;
   int m_gameMode;

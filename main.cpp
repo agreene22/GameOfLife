@@ -110,11 +110,7 @@ int main(int argc, char **argv){
     cout << "Invalid input.";
     return 1;
   }
-
-
-
-
-
+  delete m;
 
   return 0;
 }

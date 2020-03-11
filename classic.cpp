@@ -226,6 +226,5 @@ int Classic::findAlive(int currRow, int currColumn){
       count++;
     }
   }
-  //cout << m_genCount << ": " << currRow << " " << currColumn << ", count:" << count << endl;
   return count;
 }

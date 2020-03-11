@@ -17,10 +17,6 @@ Manager::Manager(char mapChoice, int gameMode, int outOption){
   m_outOption = outOption;
 }
 
-Manager::~Manager(){
-  // idk if we need a destructor
-}
-
 
 char** Manager::SetMap(int& userRows, int& userColumns){
   int lineCount = 0;
