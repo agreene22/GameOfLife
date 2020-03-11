@@ -159,7 +159,6 @@ int Classic::findAlive(int currRow, int currColumn){
       count++;
     }
   }else if(currRow == 0 && (currColumn != 0 && currColumn != (m_columns - 1))){ // Checks top row
-    cout << "here" << endl; // FOR row 0 column 2 its not entering this loop
     if(currGen[currRow][currColumn-1] == 'X'){
       count++;
     }if(currGen[currRow][currColumn+1] == 'X'){
