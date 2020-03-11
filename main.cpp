@@ -34,12 +34,30 @@ int main(int argc, char **argv){
 
   int b = m->ChooseBoundary();
   int out = m->ChooseOutput();
-  if(b == 1 && mapChoice != 'y' && out == 1){
+  if(b == 1 && mapChoice != 'y'){
     Classic* classic1 = new Classic(userRows,userColumns,userDensity);
-    // m->Simulation(classic1); // I know this method isn't functional yet
-  }else if (b == 1 && mapChoice == 'y' && out == 1){
-    // Classic* classic2 = new Classic(map, userRows, userColumns);
-    // m->Simulation(classic2);
+    if(out == 1){//brief pause
+
+    }else if(out == 2){//press enter
+
+    }else if(out == 3){//print to file
+      string outFile = "";
+      cout << "What would you like the name of your output file to be?" << endl;
+      cin >> outFile;
+      m->Simulation2(classic1, outFile)
+    }
+  }else if (b == 1 && mapChoice == 'y'){
+    Classic* classic2 = new Classic(map, userRows, userColumns);
+    if(out == 1){//brief pause
+
+    }else if(out == 2){//press enter
+
+    }else if(out == 3){//printing to a file
+      string outFile = "";
+      cout << "What would you like the name of your output file to be?" << endl;
+      cin >> outFile;
+      m->Simulation2(classic2, outFile)
+    }
   }else if(b == 2 && mapChoice != 'y'){
     // Doughnut* doughnut1 = new Doughnut(userRows,userColumns,userDensity);
     // m->Simulation(doughnut1);
@@ -57,40 +75,10 @@ int main(int argc, char **argv){
     return 1;
   }
 
-  //int out = m->ChooseOutput();
 
-  Doughnut* mine = new Doughnut(map, userRows, userColumns); // Error when declaring within if statement because then out of scope for method calls later
 
-  if (out == 1){
-    // sleep(3000); // do this to create 3 second pause
-  } else if (out == 2){
-    // PRESS ENTER
-  } else{
-    //ofstream outFS;
-    //outFS.open("generationOutput.txt");
-    // outFS << mine.DisplayGen(); // can't write to file like this because it doesn't return anything
-    //outFS.close();
-  }
 
-  int loopCount = 0;
-  while(true){
-    mine->DisplayGen();
-    mine->Simulate();
-    if(mine->isStable()){
-      cout << "Stable" << endl;
-      break;
-    }if(mine->isEmpty()){
-      cout << "Empty" << endl;
-      break;
-    }if(loopCount > 1000){
-      break;
-    }
-  }
-  // mine->DisplayGen(); // getting segmentation fault but not sure why
-  // mine->Simulate();
-  // mine->DisplayGen();
-  // mine->Simulate();
-  // mine->DisplayGen();
+
 
   return 0;
 }

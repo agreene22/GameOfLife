@@ -1,6 +1,7 @@
 #include <iostream>
 #include <random>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -11,9 +12,9 @@ class Doughnut{
     Doughnut(char** grid, int rows, int columns);
     ~Doughnut();
 
-    void DisplayGen(); //no need for parameters on these functions
-    void PrintGen(std::ofstream& out);
-    void Simulate(); //no need for parameters on these functions
+    void DisplayGen();
+    void PrintGen(string file);
+    void Simulate(); 
     int findAlive(int currRow, int currColumn);
     char** init(int rows, int cols, float density);
     bool isStable();

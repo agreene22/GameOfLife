@@ -81,13 +81,15 @@ void Doughnut::DisplayGen(){
   }
 }
 
-void Doughnut::PrintGen(ofstream& out){
+void Doughnut::PrintGen(string file){
+  ofstream fout;
+  fout.open(file, ios::app);
   cout << "Generation " << m_genCount << endl;
   for(int i = 0; i < m_rows; ++i){
     for(int j = 0; j < m_columns; ++j){
-      out << currGen[i][j];
+      fout << currGen[i][j];
     }
-    out << endl;
+    fout << endl;
   }
 }
 

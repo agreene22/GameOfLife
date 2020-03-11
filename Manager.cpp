@@ -126,6 +126,7 @@ void Manager::Simulation1(Classic *game){
   if(choice == 'y'){
     int cycles = ChooseCycles();
     while(true){
+      Sleep(2500);
       game->DisplayGen();
       game->Simulate();
       if(game->isStable()){
@@ -140,88 +141,7 @@ void Manager::Simulation1(Classic *game){
     }
   }else if(choice == 'n'){
     while(true){
-      game->DisplayGen();
-      game->Simulate();
-      if(game->isStable()){
-        cout << "Stable" << endl;
-        break;
-      }if(game->isEmpty()){
-        cout << "Empty" << endl;
-        break;
-      }if(loopCount > 10000){
-        break;
-      }
-    }
-  }else{
-    cout << "Invalid input." << endl;
-    exit(0);
-  }
-}
-
-void Manager::Simulation2(Classic *game, ofstream& outFS){
-  int loopCount = 0;
-  char choice = '\0';
-  cout << "Would you like a certain number of iterations? Enter (y/n)" << endl;
-  cin >> choice;
-  choice = tolower(choice);
-  if(choice == 'y'){
-    int cycles = ChooseCycles();
-    while(true){
-      game->PrintGen(outFS);
-      game->Simulate();
-      if(game->isStable()){
-        cout << "Stable" << endl;
-        break;
-      }if(game->isEmpty()){
-        cout << "Empty" << endl;
-        break;
-      }if(loopCount >= cycles){
-        break;
-      }
-    }
-  }else if(choice == 'n'){
-    while(true){
-      game->PrintGen(outFS);
-      game->Simulate();
-      if(game->isStable()){
-        cout << "Stable" << endl;
-        break;
-      }if(game->isEmpty()){
-        cout << "Empty" << endl;
-        break;
-      }if(loopCount > 10000){
-        break;
-      }
-    }
-  }else{
-    cout << "Invalid input." << endl;
-    exit(0);
-  }
-}
-
-void Manager::Simulation1(Mirror *game){
-  int loopCount = 0;
-  char choice = '\0';
-  cout << "Would you like a certain number of iterations? Enter (y/n)" << endl;
-  cin >> choice;
-  choice = tolower(choice);
-  if(choice == 'y'){
-    int cycles = ChooseCycles();
-    while(true){
-      game->DisplayGen();
-      game->Simulate();
-      if(game->isStable()){
-        cout << "Stable" << endl;
-        break;
-      }if(game->isEmpty()){
-        cout << "Empty" << endl;
-        break;
-      }if(loopCount >= cycles){
-        break;
-      }
-    }
-  }else if(choice == 'n'){
-    while(true){
+      Sleep(2500);
       game->DisplayGen();
       game->Simulate();
       if(game->isStable()){
@@ -240,7 +160,7 @@ void Manager::Simulation1(Mirror *game){
   }
 }
 
-void Manager::Simulation2(Mirror *game, ofstream& outFS){
+void Manager::Simulation2(Classic *game){
   int loopCount = 0;
   char choice = '\0';
   cout << "Would you like a certain number of iterations? Enter (y/n)" << endl;
@@ -249,47 +169,9 @@ void Manager::Simulation2(Mirror *game, ofstream& outFS){
   if(choice == 'y'){
     int cycles = ChooseCycles();
     while(true){
-      game->PrintGen(outFS);
-      game->Simulate();
-      if(game->isStable()){
-        cout << "Stable" << endl;
-        break;
-      }if(game->isEmpty()){
-        cout << "Empty" << endl;
-        break;
-      }if(loopCount >= cycles){
-        break;
-      }
-    }
-  }else if(choice == 'n'){
-    while(true){
-      game->PrintGen(outFS);
-      game->Simulate();
-      if(game->isStable()){
-        cout << "Stable" << endl;
-        break;
-      }if(game->isEmpty()){
-        cout << "Empty" << endl;
-        break;
-      }if(loopCount > 10000){
-        break;
-      }
-    }
-  }else{
-    cout << "Invalid input." << endl;
-    exit(0);
-  }
-}
-
-void Manager::Simulation1(Doughnut *game){
-  int loopCount = 0;
-  char choice = '\0';
-  cout << "Would you like a certain number of iterations? Enter (y/n)" << endl;
-  cin >> choice;
-  choice = tolower(choice);
-  if(choice == 'y'){
-    int cycles = ChooseCycles();
-    while(true){
+      string passGo = "";
+      cout << "Hit any key to see the next generation" << endl;
+      cin >> passGo;
       game->DisplayGen();
       game->Simulate();
       if(game->isStable()){
@@ -304,6 +186,9 @@ void Manager::Simulation1(Doughnut *game){
     }
   }else if(choice == 'n'){
     while(true){
+      string passGo = "";
+      cout << "Hit any key to see the next generation" << endl;
+      cin >> passGo;
       game->DisplayGen();
       game->Simulate();
       if(game->isStable()){
@@ -322,7 +207,7 @@ void Manager::Simulation1(Doughnut *game){
   }
 }
 
-void Manager::Simulation2(Doughnut *game, ofstream& outFS){
+void Manager::Simulation3(Classic *game, string file){
   int loopCount = 0;
   char choice = '\0';
   cout << "Would you like a certain number of iterations? Enter (y/n)" << endl;
@@ -331,7 +216,7 @@ void Manager::Simulation2(Doughnut *game, ofstream& outFS){
   if(choice == 'y'){
     int cycles = ChooseCycles();
     while(true){
-      game->PrintGen(outFS);
+      game->PrintGen(file);
       game->Simulate();
       if(game->isStable()){
         cout << "Stable" << endl;
@@ -345,7 +230,269 @@ void Manager::Simulation2(Doughnut *game, ofstream& outFS){
     }
   }else if(choice == 'n'){
     while(true){
-      game->PrintGen(outFS);
+      game->PrintGen(file);
+      game->Simulate();
+      if(game->isStable()){
+        cout << "Stable" << endl;
+        break;
+      }if(game->isEmpty()){
+        cout << "Empty" << endl;
+        break;
+      }if(loopCount > 10000){
+        break;
+      }
+    }
+  }else{
+    cout << "Invalid input." << endl;
+    exit(0);
+  }
+}
+
+void Manager::Simulation1(Mirror *game){//brief pause
+  int loopCount = 0;
+  char choice = '\0';
+  cout << "Would you like a certain number of iterations? Enter (y/n)" << endl;
+  cin >> choice;
+  choice = tolower(choice);
+  if(choice == 'y'){
+    int cycles = ChooseCycles();
+    while(true){
+      Sleep(2500);
+      game->DisplayGen();
+      game->Simulate();
+      if(game->isStable()){
+        cout << "Stable" << endl;
+        break;
+      }if(game->isEmpty()){
+        cout << "Empty" << endl;
+        break;
+      }if(loopCount >= cycles){
+        break;
+      }
+    }
+  }else if(choice == 'n'){
+    while(true){
+      Sleep(2500);
+      game->DisplayGen();
+      game->Simulate();
+      if(game->isStable()){
+        cout << "Stable" << endl;
+        break;
+      }if(game->isEmpty()){
+        cout << "Empty" << endl;
+        break;
+      }if(loopCount > 10000){
+        break;
+      }
+    }
+  }else{
+    cout << "Invalid input." << endl;
+    exit(0);
+  }
+}
+
+void Manager::Simulation2(Mirror *game){//press enter
+  int loopCount = 0;
+  char choice = '\0';
+  cout << "Would you like a certain number of iterations? Enter (y/n)" << endl;
+  cin >> choice;
+  choice = tolower(choice);
+  if(choice == 'y'){
+    int cycles = ChooseCycles();
+    while(true){
+      string passGo = "";
+      cout << "Hit any key to see the next generation" << endl;
+      cin >> passGo;
+      game->DisplayGen();
+      game->Simulate();
+      if(game->isStable()){
+        cout << "Stable" << endl;
+        break;
+      }if(game->isEmpty()){
+        cout << "Empty" << endl;
+        break;
+      }if(loopCount >= cycles){
+        break;
+      }
+    }
+  }else if(choice == 'n'){
+    while(true){
+      string passGo = "";
+      cout << "Hit any key to see the next generation" << endl;
+      cin >> passGo;
+      game->DisplayGen();
+      game->Simulate();
+      if(game->isStable()){
+        cout << "Stable" << endl;
+        break;
+      }if(game->isEmpty()){
+        cout << "Empty" << endl;
+        break;
+      }if(loopCount > 10000){
+        break;
+      }
+    }
+  }else{
+    cout << "Invalid input." << endl;
+    exit(0);
+  }
+}
+
+void Manager::Simulation3(Mirror *game, string file){
+  int loopCount = 0;
+  char choice = '\0';
+  cout << "Would you like a certain number of iterations? Enter (y/n)" << endl;
+  cin >> choice;
+  choice = tolower(choice);
+  if(choice == 'y'){
+    int cycles = ChooseCycles();
+    while(true){
+      game->PrintGen(file);
+      game->Simulate();
+      if(game->isStable()){
+        cout << "Stable" << endl;
+        break;
+      }if(game->isEmpty()){
+        cout << "Empty" << endl;
+        break;
+      }if(loopCount >= cycles){
+        break;
+      }
+    }
+  }else if(choice == 'n'){
+    while(true){
+      game->PrintGen(file);
+      game->Simulate();
+      if(game->isStable()){
+        cout << "Stable" << endl;
+        break;
+      }if(game->isEmpty()){
+        cout << "Empty" << endl;
+        break;
+      }if(loopCount > 10000){
+        break;
+      }
+    }
+  }else{
+    cout << "Invalid input." << endl;
+    exit(0);
+  }
+}
+
+void Manager::Simulation1(Doughnut *game){//brief pause
+  int loopCount = 0;
+  char choice = '\0';
+  cout << "Would you like a certain number of iterations? Enter (y/n)" << endl;
+  cin >> choice;
+  choice = tolower(choice);
+  if(choice == 'y'){
+    int cycles = ChooseCycles();
+    while(true){
+      Sleep(2500);
+      game->DisplayGen();
+      game->Simulate();
+      if(game->isStable()){
+        cout << "Stable" << endl;
+        break;
+      }if(game->isEmpty()){
+        cout << "Empty" << endl;
+        break;
+      }if(loopCount >= cycles){
+        break;
+      }
+    }
+  }else if(choice == 'n'){
+    while(true){
+      Sleep(2500);
+      game->DisplayGen();
+      game->Simulate();
+      if(game->isStable()){
+        cout << "Stable" << endl;
+        break;
+      }if(game->isEmpty()){
+        cout << "Empty" << endl;
+        break;
+      }if(loopCount > 10000){
+        break;
+      }
+    }
+  }else{
+    cout << "Invalid input." << endl;
+    exit(0);
+  }
+}
+
+void Manager::Simulation2(Doughnut *game){//press enter
+  int loopCount = 0;
+  char choice = '\0';
+  cout << "Would you like a certain number of iterations? Enter (y/n)" << endl;
+  cin >> choice;
+  choice = tolower(choice);
+  if(choice == 'y'){
+    int cycles = ChooseCycles();
+    while(true){
+      string passGo = "";
+      cout << "Hit any key to see the next generation" << endl;
+      cin >> passGo;
+      game->DisplayGen();
+      game->Simulate();
+      if(game->isStable()){
+        cout << "Stable" << endl;
+        break;
+      }if(game->isEmpty()){
+        cout << "Empty" << endl;
+        break;
+      }if(loopCount >= cycles){
+        break;
+      }
+    }
+  }else if(choice == 'n'){
+    while(true){
+      string passGo = "";
+      cout << "Hit any key to see the next generation" << endl;
+      cin >> passGo;
+      game->DisplayGen();
+      game->Simulate();
+      if(game->isStable()){
+        cout << "Stable" << endl;
+        break;
+      }if(game->isEmpty()){
+        cout << "Empty" << endl;
+        break;
+      }if(loopCount > 10000){
+        break;
+      }
+    }
+  }else{
+    cout << "Invalid input." << endl;
+    exit(0);
+  }
+}
+
+void Manager::Simulation3(Doughnut *game, string file){//print to file
+  int loopCount = 0;
+  char choice = '\0';
+  cout << "Would you like a certain number of iterations? Enter (y/n)" << endl;
+  cin >> choice;
+  choice = tolower(choice);
+  if(choice == 'y'){
+    int cycles = ChooseCycles();
+    while(true){
+      game->PrintGen(file);
+      game->Simulate();
+      if(game->isStable()){
+        cout << "Stable" << endl;
+        break;
+      }if(game->isEmpty()){
+        cout << "Empty" << endl;
+        break;
+      }if(loopCount >= cycles){
+        break;
+      }
+    }
+  }else if(choice == 'n'){
+    while(true){
+      game->PrintGen(file);
       game->Simulate();
       if(game->isStable()){
         cout << "Stable" << endl;
