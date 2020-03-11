@@ -4,6 +4,8 @@
 #include "classic.h"
 #include "doughnut.h"
 #include "mirror.h"
+#include <chrono>
+#include <thread>
 
 using namespace std;
 

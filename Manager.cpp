@@ -126,7 +126,7 @@ void Manager::Simulation1(Classic *game){
   if(choice == 'y'){
     int cycles = ChooseCycles();
     while(true){
-      usleep(3);
+      std::this_thread::sleep_for(std::chrono::milliseconds(2500));
       game->DisplayGen();
       game->Simulate();
       if(game->isStable()){
@@ -141,7 +141,7 @@ void Manager::Simulation1(Classic *game){
     }
   }else if(choice == 'n'){
     while(true){
-      usleep(3);
+      std::this_thread::sleep_for(std::chrono::milliseconds(2500));
       game->DisplayGen();
       game->Simulate();
       if(game->isStable()){
@@ -257,7 +257,7 @@ void Manager::Simulation1(Mirror *game){//brief pause
   if(choice == 'y'){
     int cycles = ChooseCycles();
     while(true){
-      usleep(3);
+      std::this_thread::sleep_for(std::chrono::milliseconds(2500));
       game->DisplayGen();
       game->Simulate();
       if(game->isStable()){
@@ -272,7 +272,7 @@ void Manager::Simulation1(Mirror *game){//brief pause
     }
   }else if(choice == 'n'){
     while(true){
-      usleep(3);
+      std::this_thread::sleep_for(std::chrono::milliseconds(2500));
       game->DisplayGen();
       game->Simulate();
       if(game->isStable()){
@@ -388,7 +388,7 @@ void Manager::Simulation1(Doughnut *game){//brief pause
   if(choice == 'y'){
     int cycles = ChooseCycles();
     while(true){
-      usleep(3);
+      std::this_thread::sleep_for(std::chrono::milliseconds(2500));
       game->DisplayGen();
       game->Simulate();
       if(game->isStable()){
@@ -403,7 +403,7 @@ void Manager::Simulation1(Doughnut *game){//brief pause
     }
   }else if(choice == 'n'){
     while(true){
-      usleep(3);
+      std::this_thread::sleep_for(std::chrono::milliseconds(2500));
       game->DisplayGen();
       game->Simulate();
       if(game->isStable()){

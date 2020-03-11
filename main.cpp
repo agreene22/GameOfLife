@@ -44,7 +44,7 @@ int main(int argc, char **argv){
       string outFile = "";
       cout << "What would you like the name of your output file to be?" << endl;
       cin >> outFile;
-      m->Simulation2(classic1, outFile)
+      m->Simulation3(classic1, outFile);
     }
   }else if (b == 1 && mapChoice == 'y'){
     Classic* classic2 = new Classic(map, userRows, userColumns);
@@ -56,7 +56,7 @@ int main(int argc, char **argv){
       string outFile = "";
       cout << "What would you like the name of your output file to be?" << endl;
       cin >> outFile;
-      m->Simulation2(classic2, outFile)
+      m->Simulation3(classic2, outFile);
     }
   }else if(b == 2 && mapChoice != 'y'){
     // Doughnut* doughnut1 = new Doughnut(userRows,userColumns,userDensity);
