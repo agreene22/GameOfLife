@@ -53,7 +53,16 @@ Doughnut::~Doughnut(){
 }
 
 bool Dougnut::isEmpty(){
-
+  for(int i = 0; i < m_rows; ++i){
+    for(int j = 0; j < m_columns; ++j){
+      if(currGen[i][j] == 'X'){
+        return FALSE;
+      }else{
+        continue;
+      }
+    }
+  }
+  return TRUE;
 }
 
 bool Dougnut::isStable(){
