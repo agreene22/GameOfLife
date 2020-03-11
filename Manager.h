@@ -1,6 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+// #include "classic.h"
+// #include "doughnut.h"
+// #include "mirror.h"
 
 class Manager{
 public:
@@ -13,7 +16,7 @@ public:
   int ChooseOutput();
   int ChooseCycles();
 
-  // void Simulation(Classic *game); //Can overload the constructor so that way it runs game of correct type
+  // void Simulation(Classic* game); //Can overload the constructor so that way it runs game of correct type
   // void Simulation(Doughnut *game);
   // void Simulation(Mirror *game);
 private:

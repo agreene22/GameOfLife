@@ -25,17 +25,21 @@ char** Classic::init(int rows, int cols, float density){
 Classic::Classic(char** map, int rows, int columns){
   currGen = map;
   nextGen = init(rows, columns, 0.0);
+  prevGen = init(rows, columns, 0.0);
   m_genCount = 0;
   m_rows = rows;
   m_columns = columns;
+  m_stable = false;
 }
 
 Classic::Classic(int rows, int columns, float density){
   currGen = init(rows, columns, density);
   nextGen = init(rows, columns, 0.0);
+  prevGen = init(rows, columns, 0.0);
   m_genCount = 0;
   m_rows = rows;
   m_columns = columns;
+  m_stable = false;
 }
 
 Classic::~Classic(){
@@ -48,7 +52,13 @@ bool Classic::isEmpty(){
 }
 
 bool Classic::isStable(){
-
+  if(&currGen == &prevGen && m_genCount > 10){
+    m_stable = true;
+  }
+  else{
+    m_stable = false;
+  }
+  return m_stable;
 }
 
 void Classic::DisplayGen(){
@@ -84,6 +94,7 @@ void Classic::Simulate(){
       }
     }
   }
+  prevGen = currGen;
   currGen = nextGen;
   nextGen = init(m_rows, m_columns, 0.0);
   m_genCount++;

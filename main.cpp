@@ -69,11 +69,15 @@ int main(int argc, char **argv){
     outFS.close();
   }
 
-  mine->DisplayGen(); // getting segmentation fault but not sure why
-  mine->Simulate();
-  mine->DisplayGen();
-  mine->Simulate();
-  mine->DisplayGen();
+  while(mine->isStable() == false){
+    mine->DisplayGen();
+    mine->Simulate();
+  }
+  // mine->DisplayGen(); // getting segmentation fault but not sure why
+  // mine->Simulate();
+  // mine->DisplayGen();
+  // mine->Simulate();
+  // mine->DisplayGen();
 
   return 0;
 }

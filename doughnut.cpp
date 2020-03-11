@@ -52,11 +52,11 @@ Doughnut::~Doughnut(){
   delete nextGen;
 }
 
-bool Dougnut::isEmpty(){
+bool Doughnut::isEmpty(){
 
 }
 
-bool Dougnut::isStable(){
+bool Doughnut::isStable(){
 
 }
 

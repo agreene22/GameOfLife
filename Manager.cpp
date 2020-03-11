@@ -1,7 +1,4 @@
 #include "Manager.h"
-#include "classic.h"
-#include "doughnut.h"
-#include "mirror.h"
 
 using namespace std;
 
@@ -118,10 +115,10 @@ int Manager::ChooseCycles(){
 
 
 // void Manager::Simulation(Classic *game){
-  // while(game->isStable() && game ->isDead()){
-  //   game->DisplayGen();
-  //   game->Simulate();
-  // }
+//   while(game->isStable()){
+//     game->DisplayGen();
+//     game->Simulate();
+//   }
 // }
 
 // void Manager::Simulation(Doughnut *game){
