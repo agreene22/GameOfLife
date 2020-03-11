@@ -2,6 +2,8 @@
 #include <random>
 #include <fstream>
 
+using namespace std;
+
 class Mirror{
   public:
     Mirror();
