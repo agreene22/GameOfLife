@@ -21,4 +21,5 @@ class Mirror{
     int m_genCount;
     int m_rows;
     int m_columns;
+    bool m_stable = false;
 };

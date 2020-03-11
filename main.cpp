@@ -69,7 +69,17 @@ int main(int argc, char **argv){
     outFS.close();
   }
 
-  while(mine->!isStable()){
+  int loopCount = 0;
+  while(true){
+    if(mine->isStable()){
+      cout << "Stable" << endl;
+      break;
+    }if(mine->isEmpty()){
+      cout << "Empty" << endl;
+      break;
+    }if(loopCount > 1000){
+      break;
+    }
     mine->DisplayGen();
     mine->Simulate();
   }

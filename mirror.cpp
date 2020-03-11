@@ -65,7 +65,7 @@ bool Mirror::isEmpty(){
 }
 
 bool Mirror::isStable(){
-
+  return m_stable;
 }
 
 void Mirror::DisplayGen(){
@@ -97,6 +97,15 @@ void Mirror::Simulate(){
         }
       }else{
         nextGen[i][j] = '-';
+      }
+    }
+  }
+  for(int i = 0; i < m_rows; ++i){
+    for(int j = 0; j < m_columns; ++j){
+      if(currGen[i][j] == nextGen[i][j]){
+        m_stable = true;
+      }else{
+        m_stable = false;
       }
     }
   }

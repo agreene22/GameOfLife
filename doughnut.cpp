@@ -103,6 +103,15 @@ void Doughnut::Simulate(){
       }
     }
   }
+  for(int i = 0; i < m_rows; ++i){
+    for(int j = 0; j < m_columns; ++j){
+      if(currGen[i][j] == nextGen[i][j]){
+        m_stable = true;
+      }else{
+        m_stable = false;
+      }
+    }
+  }
   currGen = nextGen;
   nextGen = init(m_rows, m_columns, 0.0);
   m_genCount++;

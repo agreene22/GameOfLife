@@ -25,7 +25,6 @@ char** Classic::init(int rows, int cols, float density){
 Classic::Classic(char** map, int rows, int columns){
   currGen = map;
   nextGen = init(rows, columns, 0.0);
-  prevGen = init(rows, columns, 0.0);
   m_genCount = 0;
   m_rows = rows;
   m_columns = columns;
@@ -34,7 +33,6 @@ Classic::Classic(char** map, int rows, int columns){
 Classic::Classic(int rows, int columns, float density){
   currGen = init(rows, columns, density);
   nextGen = init(rows, columns, 0.0);
-  prevGen = init(rows, columns, 0.0);
   m_genCount = 0;
   m_rows = rows;
   m_columns = columns;
@@ -59,11 +57,7 @@ bool Classic::isEmpty(){
 }
 
 bool Classic::isStable(){
-  if(*currGen == *prevGen || m_genCount > 10){
-    return false;
-  }else{
-    return true;
-  }
+  return m_stable;
 }
 
 void Classic::DisplayGen(){
@@ -99,8 +93,15 @@ void Classic::Simulate(){
       }
     }
   }
-  prevGen = currGen;
-  currGen = init(m_rows, m_columns,0.0);
+  for(int i = 0; i < m_rows; ++i){
+    for(int j = 0; j < m_columns; ++j){
+      if(currGen[i][j] == nextGen[i][j]){
+        m_stable = true;
+      }else{
+        m_stable = false;
+      }
+    }
+  }
   currGen = nextGen;
   nextGen = init(m_rows, m_columns, 0.0);
   m_genCount++;
