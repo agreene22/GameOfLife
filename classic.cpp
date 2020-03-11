@@ -29,7 +29,6 @@ Classic::Classic(char** map, int rows, int columns){
   m_genCount = 0;
   m_rows = rows;
   m_columns = columns;
-  m_stable = false;
 }
 
 Classic::Classic(int rows, int columns, float density){
@@ -39,7 +38,6 @@ Classic::Classic(int rows, int columns, float density){
   m_genCount = 0;
   m_rows = rows;
   m_columns = columns;
-  m_stable = false;
 }
 
 Classic::~Classic(){
@@ -48,17 +46,19 @@ Classic::~Classic(){
 }
 
 bool Classic::isEmpty(){
-
+  for(int i = 0; i < m_rows; ++i){
+    for(int j = 0; j < m_columns; ++j){
+      if(currGen[i][j] == 'X'){
+        return FALSE;
+      }else{
+        continue;
+      }
+    }
+  }
+  return TRUE;
 }
 
 bool Classic::isStable(){
-  if(&currGen == &prevGen && m_genCount > 10){
-    m_stable = true;
-  }
-  else{
-    m_stable = false;
-  }
-  return m_stable;
 }
 
 void Classic::DisplayGen(){

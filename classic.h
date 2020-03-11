@@ -20,9 +20,7 @@ public:
 private:
   char** currGen;
   char** nextGen;
-  char** prevGen;
   int m_genCount;
   int m_rows;
   int m_columns;
-  bool m_stable;
 };
