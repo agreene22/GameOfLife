@@ -59,7 +59,7 @@ bool Classic::isEmpty(){
 }
 
 bool Classic::isStable(){
-  if(&currGen == &prevGen || m_genCount > 10){
+  if(*currGen == *prevGen || m_genCount > 10){
     return false;
   }else{
     return true;
