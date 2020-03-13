@@ -28,8 +28,8 @@ char** Mirror::init(int rows, int cols, float density){
 }
 
 Mirror::Mirror(){
-  currGen = init(5,5, 0.7); // initliazing random rows, columns, and population for current generation
-  nextGen = init(5,5, 0.0); // initliazing random rows, columns, and population empty
+  currGen = init(5,5, 0.7); // initliazing 5 rows, columns, and population for current generation
+  nextGen = init(5,5, 0.0); // initliazing 5 rows, columns, and population empty
   m_genCount = 0; // setting generation count to 0
   m_rows = 5; // setting rows to match grid
   m_columns = 5; // setting columns to match grid
