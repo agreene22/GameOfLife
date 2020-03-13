@@ -12,7 +12,7 @@ using namespace std;
 class Doughnut{
   public:
     Doughnut(); // default constructor
-    Doughnut(int rows, int columns, float density; //overloaded constructor for random generation
+    Doughnut(int rows, int columns, float density); //overloaded constructor for random generation
     Doughnut(char** grid, int rows, int columns); //overloaded constructor if map file is provided
     ~Doughnut(); // destructor
 
