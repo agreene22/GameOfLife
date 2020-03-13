@@ -1,3 +1,8 @@
+/* Anna Greene - 2314663
+  Brandon Kleinman - 2291703
+  Assignment 2 - Game of Life
+ */
+
 #include <iostream>
 #include <random>
 #include <fstream>

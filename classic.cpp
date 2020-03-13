@@ -1,3 +1,7 @@
+/* Anna Greene - 2314663
+  Brandon Kleinman - 2291703
+  Assignment 2 - Game of Life
+ */
 #include "classic.h"
 
 using namespace std;
