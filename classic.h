@@ -12,26 +12,25 @@ using namespace std;
 
 class Classic{
   public:
-    Classic();
-    Classic(int rows, int columns, float density);
-    Classic(char** grid, int rows, int columns);
-    ~Classic();
+    Classic(); // default constructor
+    Classic(int rows, int columns, float density); // overloaded constructor for random grid
+    Classic(char** grid, int rows, int columns); // overloaded constructor for provided file
+    ~Classic(); // destructor
 
-    void DisplayGen();
-    void PrintGen(string file);
-    void Simulate();
-    int findAlive(int currRow, int currColumn);
-    char** init(int rows, int cols, float density);
-    bool isStable();
-    bool isEmpty();
-
+    void DisplayGen(); // prints generation to the console
+    void PrintGen(string file); // writes output to file
+    void Simulate(); // generates next gen
+    int findAlive(int currRow, int currColumn); // counts neighbors for specific cell
+    char** init(int rows, int cols, float density); // initialize 2d array grid
+    bool isStable(); // checks if the generations stabilize
+    bool isEmpty(); // checks if all the cells die
 
 
   private:
-    char** currGen;
-    char** nextGen;
-    int m_genCount;
-    int m_rows;
-    int m_columns;
-    bool m_stable = false;
+    char** currGen; // pointer to 2d array of current generation
+    char** nextGen; // pointer to 2d array of next generation
+    int m_genCount; // integer for generation count
+    int m_rows; // integer for number of rows in grid
+    int m_columns; // integer for number of columns in grid
+    bool m_stable = false; // boolean representing if the generations have stabilized
 };

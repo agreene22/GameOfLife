@@ -71,7 +71,7 @@ int main(int argc, char **argv){
       m->Simulation3(doughnut1, outFile);
     }
   }else if (b == 2 && mapChoice == 'y'){
-    Doughnut* doughnut2 = new Doughnut(userRows,userColumns,userDensity);
+    Doughnut* doughnut2 = new Doughnut(map,userRows,userColumns);
     if(out == 1){//brief pause
       m->Simulation1(doughnut2);
     }else if(out == 2){//press enter
@@ -95,7 +95,7 @@ int main(int argc, char **argv){
       m->Simulation3(mirror1, outFile);
     }
   }else if (b == 3 && mapChoice == 'y'){
-    Mirror* mirror2 = new Mirror(userRows,userColumns,userDensity);
+    Mirror* mirror2 = new Mirror(map,userRows,userColumns);
     if(out == 1){//brief pause
       m->Simulation1(mirror2);
     }else if(out == 2){//press enter
