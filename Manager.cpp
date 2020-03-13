@@ -154,6 +154,7 @@ void Manager::Simulation1(Classic *game){//simulation with a brief pause for cla
       }if(loopCount > 2000){//we included this check to avoid an infinite loop
         break;
       }
+      loopCount++;
     }
   }else{
     cout << "Invalid input." << endl;
@@ -202,6 +203,7 @@ void Manager::Simulation2(Classic *game){
       }if(loopCount > 2000){//we included this check to avoid an infinite loop
         break;
       }
+      loopCount++;
     }
   }else{
     cout << "Invalid input." << endl;
@@ -244,6 +246,7 @@ void Manager::Simulation3(Classic *game, string file){
       }if(loopCount > 2000){//we included this check to avoid an infinite loop
         break;
       }
+      loopCount++;
     }
   }else{
     cout << "Invalid input." << endl;
@@ -288,6 +291,7 @@ void Manager::Simulation1(Mirror *game){//simulation with a brief pause for mirr
       }if(loopCount > 2000){//we included this check to avoid an infinite loop
         break;
       }
+      loopCount++;
     }
   }else{
     cout << "Invalid input." << endl;
@@ -336,6 +340,7 @@ void Manager::Simulation2(Mirror *game){//press enter
       }if(loopCount > 2000){//we included this check to avoid an infinite loop
         break;
       }
+      loopCount++;
     }
   }else{
     cout << "Invalid input." << endl;
@@ -378,6 +383,7 @@ void Manager::Simulation3(Mirror *game, string file){
       }if(loopCount > 2000){//we included this check to avoid an infinite loop
         break;
       }
+      loopCount++;
     }
   }else{
     cout << "Invalid input." << endl;
@@ -422,6 +428,7 @@ void Manager::Simulation1(Doughnut *game){//simulation with a brief pause for do
       }if(loopCount > 2000){//we included this check to avoid an infinite loop
         break;
       }
+      loopCount++;
     }
   }else{
     cout << "Invalid input." << endl;
@@ -470,6 +477,7 @@ void Manager::Simulation2(Doughnut *game){//press enter
       }if(loopCount > 2000){//we included this check to avoid an infinite loop
         break;
       }
+      loopCount++;
     }
   }else{
     cout << "Invalid input." << endl;
@@ -512,6 +520,7 @@ void Manager::Simulation3(Doughnut *game, string file){//print to file
       }if(loopCount > 2000){//we included this check to avoid an infinite loop
         break;
       }
+      loopCount++;
     }
   }else{
     cout << "Invalid input." << endl;
